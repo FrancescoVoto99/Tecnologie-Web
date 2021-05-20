@@ -3,18 +3,16 @@
 @section('title', 'Registrazione')
 
 @section('content')
-<div class="static">
-    <h3>Login</h3>
-    <p>Utilizza questa form per autenticarti al sito</p>
+<div id="tooplate_wrapper">
+    <div id="tooplate_content">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/interfaccia_login.css')}}" />
+        <h1><center>Accedi</center></h1>
+    
 
-    <div class="container-contact">
-        <div class="wrap-contact1">
             {{ Form::open(array('route' => 'login', 'class' => 'contact-form')) }}
             
-             <div  class="wrap-input">
-                 <p> Se non hai già un account <a  href="{{ route('register') }}">registrati</a></p>
-             </div>            
-             <div  class="wrap-input">
+             
+             <div  class="post_box">
                 {{ Form::label('username', 'Nome Utente', ['class' => 'label-input']) }}
                 {{ Form::text('username', '', ['class' => 'input','id' => 'username']) }}
                 @if ($errors->first('username'))
@@ -26,7 +24,7 @@
                 @endif
             </div>
             
-             <div  class="wrap-input">
+             <div  class="post_box">
                 {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
                 {{ Form::password('password', ['class' => 'input', 'id' => 'password']) }}
                 @if ($errors->first('password'))
@@ -38,13 +36,15 @@
                 @endif
             </div>
             
-            <div class="container-form-btn">                
-                {{ Form::submit('Login', ['class' => 'form-btn1']) }}
+            
+            <div class="post_box">                
+                {{ Form::submit('Accedi', ['class' => 'form-btn1']) }}
             </div>
             
+            <div  class="post_box">
+                 <p> Se non hai già un account <a  href="{{ route('register') }}">registrati</a></p>
+             </div>
             {{ Form::close() }}
         </div>
-    </div>
-
 </div>
 @endsection

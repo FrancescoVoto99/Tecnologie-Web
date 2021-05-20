@@ -23,6 +23,7 @@ input {
     display: block;
 	margin-bottom: 10px;
     width: 96%;
+    
 }
 button {
     font: 14px 'Open Sans', sans-serif;
@@ -32,5 +33,12 @@ button {
     cursor: pointer;
     border: none;
     margin-top: 10px;
-	text-transform: uppercase;
+    text-transform: uppercase;
+      
+    
+}
+
+.errors {
+	color: #f93d00;
+        font-size: 12px;
 }

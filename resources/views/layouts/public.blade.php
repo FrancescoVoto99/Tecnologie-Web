@@ -4,6 +4,8 @@
         <title>SporTickets | @yield('title', 'Home')</title>
         <link href="{{asset('css/tooplate_style.css')}}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="{{asset('css/ddsmoothmenu.css')}}" />
+        
+        
     </head>
     <body>
         <div id="tooplate_wrapper">
