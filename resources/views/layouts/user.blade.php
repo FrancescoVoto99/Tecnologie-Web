@@ -32,7 +32,7 @@
                 
                 <p class="footer1"><a href="FAQ.html">FAQ</a></p>
                 <p class="footer1"><a href="{{ route('who') }}">Chi Siamo</a></p>
-                <p class="footer1"><a href="lavora_con_noi.html">Lavora Con Noi</a></p>
+                <p class="footer1"><a href="{{ route('where') }}">Lavora Con Noi</a></p>
                 Copyright © 2048 Company Name 
             </footer> 
             </div>
