@@ -51,15 +51,8 @@ class PublicController extends Controller
                         ->with('events', $events);
     }
     public function searchEventiFilter( NewEventRequest $request) {
-
-        $events = $this->_eventModel->getEvents();
-        if($request!=null){
-        
         $filter=$request->validated();
-        $new_date = date('Y-m-d', strtotime($filter['dataOra']));
-        //$events = $events->whereIn('categorie', $filter['cate']);
-        $events = $events->where('dataOra', $new_date);
-        $events = $events->whereIn('regione', $filter['regg']);}
+        $events = $this->_eventModel->getEventsFilter($filter);
         
         return view('eventi')
                         ->with('events', $events);
