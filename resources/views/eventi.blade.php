@@ -10,11 +10,17 @@
         <div id="tooplate_sidebar">
             <div class="sb_box">
                 <h3>CATEGORIE</h3>      
-                <form action="home12.php" method="post" >
+               {{ Form::open(array('route' => 'eventifilter', 'id' => 'eventfilter')) }}
                     <fieldset title="Scegli una categoria">
-                        <label><input type="checkbox" name="cate[]" value="calcio" >Calcio </label><br></br>
-                        <label><input type="checkbox" name= "cate[]" value="basket">Basket</label><br></br>
-                        <label><input type="checkbox" name= "cate[]" value="pallavolo">Pallavolo</label><br></br>
+                {{ Form::label('cate', 'Calcio') }}
+                {{Form::checkbox('cate[]', 'calcio') }}
+                <br>
+                {{ Form::label('cate', 'Basket') }}
+                {{Form::checkbox('cate[]', 'basket') }}
+                <br>
+                {{ Form::label('cate', 'Pallavolo') }}
+                {{Form::checkbox('cate[]', 'pallavolo') }}
+     
                     </fieldset>
 
                     <br></br>
@@ -22,7 +28,7 @@
                     <h3>DATA</h3>      
 
                     <fieldset title="Scegli la data dell'evento">
-                        <input type="date" name= "data" /><br></br>
+                        echo Form::date('data', \Carbon\Carbon::now());<br></br>
                     </fieldset>
                     <br></br>
 
@@ -30,8 +36,8 @@
 
 
                     <fieldset title="Luogo ">
-                        <input type=hidden name=reg[] value=reggg><!--STQ:ITREGION-->
-                        <div ID="divITREGION" style="display:inline"><p><span ID='errITREGION'></span>&nbsp; 
+                        <!--STQ:ITREGION-->
+                       {{Form::select('size', ['L' => 'Large', 'S' => 'Small'])}}
                                 <select name="regg[]" multiple>
                                     <option value=''>
                                     <option value="Abruzzo" >Abruzzo
@@ -54,12 +60,12 @@
                                     <option value="Umbria" >Umbria
                                     <option value="Valle d'Aosta" >Valle d'Aosta
                                     <option value="Veneto" >Veneto
-                                </select></div><!--EDQ:ITREGION-->
+                            
                     </fieldset>
                     <br></br>
 
                     <input type="submit" value="Invia">
-                </form>
+                </form>{{ Form::close() }}
             </div>
         </div>    
 

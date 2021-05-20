@@ -17,7 +17,7 @@ Route::get('/evento/{id_event}', 'PublicController@showEvento')
 Route::get('/', 'PublicController@showEventi')
         ->name('eventi');
 
-Route::get('/eventifilter', 'PublicController@showEventi')
+Route::get('/eventifilter', 'PublicController@showEventiFilter')
         ->name('eventifilter');
 
 Route::post('eventifilter', 'PublicController@showEventiFilter')
