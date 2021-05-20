@@ -4,9 +4,6 @@
 
 @section('content')
 
-
-
-
 <div id="tooplate_sidebar">
     <div class="sb_box">
         <h3>Eventi</h3>  

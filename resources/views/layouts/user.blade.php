@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_','-',app()->getLocale()) }}">
     <head>
+        
         <title>SporTickets | @yield('title', 'Home')</title>
-        <link href="{{asset('css/tooplate_style.css')}}" rel="stylesheet" type="text/css" />
+        
+        
         <link rel="stylesheet" type="text/css" href="{{asset('css/ddsmoothmenu.css')}}" />
+        <link href="{{asset('css/tooplate_style.css')}}" rel="stylesheet" type="text/css" />
+        
+        
     </head>
     <body>
         <div id="tooplate_wrapper">
