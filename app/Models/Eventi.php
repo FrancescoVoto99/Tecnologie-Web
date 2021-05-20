@@ -29,14 +29,23 @@ class Eventi {
         }
         if (!is_null($order)) {
             $events = $events->orderBy('discountPerc', $order);
-        }
+    }
         if($filter!=null){
-            $cate=array($filter['cate']);
-           $regione=array($filter['regg']);
-        $new_date = date('Y-m-d', strtotime($filter['dataOra']));
-        $events = $events->whereIn('categoria', $cate);
-        $events = $events->where('dataOra','>',$new_date);
-        $events = $events->whereIn('regione', $regione);
+            
+            if(key_exists( 'cerca', $filter)){
+            $events = $events->where("descrizione","LIKE",$filter['cerca']);
+            }
+            if(key_exists( 'cate', $filter) ){
+                $cate=array($filter['cate']);
+                $events = $events->whereIn('categoria', $cate);
+            }
+            if(key_exists( 'regg',$filter)){
+                $regione=array($filter['regg']);
+                $events = $events->whereIn('regione', $regione);
+            }
+             $new_date = date('Y-m-d', strtotime($filter['dataOra']));
+           
+                $events = $events->where('dataOra','>',$new_date);
         }
         return $events->paginate(2);
         
@@ -45,7 +54,6 @@ class Eventi {
     public function getEvent($id_event) {
        // da rivedere jhjhjhh
         $prod = Event::where("id", $id_event);
-        
         return $prod;
     }
 

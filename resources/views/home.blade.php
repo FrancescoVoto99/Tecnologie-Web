@@ -22,7 +22,7 @@
 
     @foreach ($events as $event)
     <h2><a name="{{ $event->id }}" href="{{ route('evento', [$event->id]) }}"> {{ $event->nomeEvento }}</a></h2>
-    <img src="images/tooplate_image_04.png" alt="Image 04" />
+    <img src="images/event/{{ $event->image }}" alt="{{ $event->image }}" />
     <div class="latofoto">
         <p>Prezzo:  {{ $event->prezzo }}</p>
         <br></br>

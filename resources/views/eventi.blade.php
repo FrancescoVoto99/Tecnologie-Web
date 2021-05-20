@@ -9,6 +9,14 @@
     
         <div id="tooplate_sidebar">
             <div class="sb_box">
+                 
+                
+                <fieldset title="Cerca nelle descrizioni ">
+                        <legend>Cerca nelle descrizioni</legend>
+                        {{ Form::text('cerca', '', [ 'id' => 'search-in']) }}
+                        <button style="background: url(images/lente4.png)" alt="Cerca" ></button>
+                        
+                    </fieldset>
                 <h3>CATEGORIE</h3>      
                {{ Form::open(array('route' => 'eventifilter', 'id' => 'eventfilter')) }}
                     <fieldset title="Scegli una categoria">
@@ -65,7 +73,7 @@
  
             @foreach ($events as $event)
             <h2><a name="{{ $event->id }}" href="{{ route('evento', [$event->id]) }}"> {{ $event->nomeEvento }}</a></h2>
-            <img src="images/tooplate_image_04.png" alt="Image 04" />
+            <img src="images/event/{{ $event->image }}" alt="{{ $event->image }}" />
             <div class="latofoto">
                 <p>Prezzo:  {{ $event->prezzo }}</p>
                 <br></br>

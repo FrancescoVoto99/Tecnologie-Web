@@ -24,6 +24,7 @@ class NewEventRequest extends FormRequest
     public function rules()
     {
         return [
+            'cerca' => '',
             'dataOra' => 'after:today',
             'cate' => '',
             'regg' => ''
