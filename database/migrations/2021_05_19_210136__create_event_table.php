@@ -25,7 +25,7 @@ class CreateEventTable extends Migration
             $table->integer('bigliettiDisponibili');
             $table->integer('bigliettiVenduti');
             $table->float('incassoTotale');
-            $table->tinyInteger('sconto');
+            $table->tinyInteger('sconto')->nullable();
             $table->string('regione',20);
             $table->text('image')->nullable();
         });

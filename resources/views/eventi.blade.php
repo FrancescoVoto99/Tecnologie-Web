@@ -13,13 +13,13 @@
                {{ Form::open(array('route' => 'eventifilter', 'id' => 'eventfilter')) }}
                     <fieldset title="Scegli una categoria">
                 {{ Form::label('cate', 'Calcio') }}
-                {{Form::checkbox('cate[]', 'calcio') }}
+                {{Form::checkbox('cate', 'calcio') }}
                 <br>
                 {{ Form::label('cate', 'Basket') }}
-                {{Form::checkbox('cate[]', 'basket') }}
+                {{Form::checkbox('cate', 'basket') }}
                 <br>
                 {{ Form::label('cate', 'Pallavolo') }}
-                {{Form::checkbox('cate[]', 'pallavolo') }}
+                {{Form::checkbox('cate', 'pallavolo') }}
      
                     </fieldset>
 
@@ -28,7 +28,12 @@
                     <h3>DATA</h3>      
 
                     <fieldset title="Scegli la data dell'evento">
-                        echo Form::date('data', \Carbon\Carbon::now());<br></br>
+                        {{Form::date('dataOra', \Carbon\Carbon::now())}}<br></br>
+                    <ul class="errors">
+                    @foreach ($errors->get('dataOra') as $message)
+                    <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
                     </fieldset>
                     <br></br>
 
@@ -37,34 +42,20 @@
 
                     <fieldset title="Luogo ">
                         <!--STQ:ITREGION-->
-                       {{Form::select('size', ['L' => 'Large', 'S' => 'Small'])}}
-                                <select name="regg[]" multiple>
-                                    <option value=''>
-                                    <option value="Abruzzo" >Abruzzo
-                                    <option value="Basilicata" >Basilicata
-                                    <option value="Calabria" >Calabria
-                                    <option value="Campania" >Campania
-                                    <option value="Emilia Romagna" >Emilia-Romagna
-                                    <option value="Friuli Venezia Giulia" >Friuli-Venezia Giulia
-                                    <option value="Lazio" >Lazio
-                                    <option value="Liguria" >Liguria
-                                    <option value="Lombardia" >Lombardia
-                                    <option value="Marche" >Marche
-                                    <option value="Molise" >Molise
-                                    <option value="Piemonte" >Piemonte
-                                    <option value="Puglia" >Puglia
-                                    <option value="Sardegna" >Sardegna
-                                    <option value="Sicilia" >Sicilia
-                                    <option value="Toscana" >Toscana
-                                    <option value="Trentino Alto Adige" >Trentino-Alto Adige
-                                    <option value="Umbria" >Umbria
-                                    <option value="Valle d'Aosta" >Valle d'Aosta
-                                    <option value="Veneto" >Veneto
+                       {{Form::select('regg', ['Abruzzo' => 'Abruzzo', 'Basilicata' => 'Basilicata', 'Calabria' => 'Calabria',
+                                     'Campania' => 'Campania', 'Emilia Romagna' => 'Emilia-Romagna', 'Friuli Venezia Giulia' => 'Friuli-Venezia Giulia',
+                                     'Lazio' => 'Lazio', 'Liguria' => 'Liguria', 'Lombardia' => 'Lombardia',
+                                     'Marche' => 'Marche', 'Molise' => 'Molise', 'Piemonte' => 'Piemonte',
+                                    'Puglia' => 'Puglia', 'Sardegna' => 'Sardegna', 'Sicilia' => 'Sicilia',
+                                    'Toscana' => 'Toscana', 'Trentino Alto Adige' => 'Trentino-Alto Adige', 'Umbria' => 'Umbria',
+                                    "Valle d'Aosta" => "Valle d'Aosta", 'Veneto' => 'Veneto'])}}
+                                
+                                
                             
                     </fieldset>
                     <br></br>
 
-                    <input type="submit" value="Invia">
+                    {{ Form::submit('Cerca') }}
                 </form>{{ Form::close() }}
             </div>
         </div>    

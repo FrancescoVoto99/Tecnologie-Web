@@ -29,5 +29,5 @@
     @else
         Fine
     @endif
-</div>
+    </div>
 @endif

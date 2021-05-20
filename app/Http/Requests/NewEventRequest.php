@@ -13,7 +13,7 @@ class NewEventRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class NewEventRequest extends FormRequest
     public function rules()
     {
         return [
-            //
-        ];
+            'dataOra' => 'after:today',
+            'cate' => '',
+            'regg' => ''
+            
+            ];
     }
 }
