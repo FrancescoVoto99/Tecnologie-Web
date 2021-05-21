@@ -22,6 +22,7 @@ Route::get('/eventifilter', 'PublicController@showEventiFilter')
 
 Route::post('eventifilter', 'PublicController@searchEventiFilter')
         ->name('eventifilter');
+
 Route::get('/admin/newproduct', 'AdminController@addEvent')
         ->name('newproduct');
 

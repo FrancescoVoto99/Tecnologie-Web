@@ -59,6 +59,16 @@ class DatabaseSeeder extends Seeder
              'prezzo' => 30,'bigliettiDisponibili' => 30000,
              'bigliettiVenduti' => 0,'incassoTotale' => 0,'sconto' => NULL,'regione' => ' Trentino-Alto Adige','image' => 'trento.png'],
         ]);
-    
+        DB::table('users')->insert([
+            ['name' => 'Alex', 'surname' => 'Verdi', 'email' => 'alex@verdi.it', 'username' => 'alexalex',
+                'password' => Hash::make('alexalex'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")],
+            ['name' => 'Marco', 'surname' => 'Bianchi', 'email' => 'marco@bianchi.it', 'username' => 'useruser',
+                'password' => Hash::make('useruser'), 'role' => 'user', 'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")],
+            ['name' => 'Mario', 'surname' => 'Rossi', 'email' => 'mario@rossi.it', 'username' => 'adminadmin',
+                'password' => Hash::make('adminadmin'), 'role' => 'admin', 'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")]
+        ]);
     }
 }

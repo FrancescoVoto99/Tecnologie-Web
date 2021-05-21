@@ -10,8 +10,7 @@
                 <div id="tooplate_sidebar">
                     <div class="sb_box">
                         <h3>CATEGORIE</h3>
-                        <p>EVENTO 1</p>
-                        <p>EVENTO 2</p>
+                       <h1><a>Acquista</a><h1><img  src="images/carrello.png"  width="50" height="50" alt="eeee" /></a></p>
                         
                     </div>
 
@@ -31,7 +30,7 @@
                   <br></br>
                    <p>Biglietti disponibili: {{ $event->bigliettiDisponibili }} </p>
                      <br></br>
-                    
+                     
                  </div>
                    
             <div class="sottofoto">
