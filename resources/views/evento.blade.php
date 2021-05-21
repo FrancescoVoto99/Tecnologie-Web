@@ -23,7 +23,7 @@
                  
               <h2>{{ $event->nomeEvento }}</h2>
                     
-               <img style="float: left" src="images/event/{{ $event->image }}" alt="{{ $event->image }}" />
+               <img style="float: left" src="images/event/{{ $event->image }}" alt="{{ $event->image }}" width="300" height="168" />
               <div class="latofoto1">                  
                <p>Data:{{ $event->dataOra }}</p>
                    <br></br>
