@@ -23,17 +23,23 @@ Route::get('/eventifilter', 'PublicController@showEventiFilter')
 Route::post('eventifilter', 'PublicController@searchEventiFilter')
         ->name('eventifilter');
 
-Route::get('/admin/newproduct', 'AdminController@addEvent')
-        ->name('newproduct');
+Route::get('/admin/newevent', 'AdminController@addEvent')
+        ->name('newevent');
 
 Route::post('/admin/newevent', 'AdminController@storeEvent')
-        ->name('newproduct.store');
+        ->name('newevent.store');
 
 Route::get('/admin', 'AdminController@index')
         ->name('admin');
 
 Route::get('/user', 'UserController@index')
         ->name('user')->middleware('can:isUser');
+
+Route::get('/user/mioaccaunt', 'UserController@MioAccaunt')
+        ->name('mioaccount');
+
+Route::post('/user/mioaccaunt', 'UserController@editMioAccaunt')
+        ->name('mioaccaunt.edit');
 
 // Rotte per l'autenticazione
 Route::get('login', 'Auth\LoginController@showLoginForm')

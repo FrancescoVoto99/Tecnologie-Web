@@ -22,9 +22,8 @@ class AdminController extends Controller
     }
 
     public function addEvent() {
-        $prodCats = $this->_adminModel->getProdsCats()->pluck('name', 'catId');
-        return view('product.insert')
-                        ->with('cats', $prodCats);
+        return view('event.insert');
+                       
     }
 
     public function storeEvent(NewProductRequest $request) {

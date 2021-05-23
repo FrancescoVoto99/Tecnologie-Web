@@ -3,11 +3,11 @@
 namespace App\Models;
 
 
-use App\Models\Resources\Event;
+use App\Models\Event;
 
 class Admin {
 
-    public function getProdsCats() {
+    public function getEvent() {
         return Event::where('id', '!=', 0)->get();
     }
 

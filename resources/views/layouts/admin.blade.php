@@ -1,32 +1,46 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_','-',app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
-        <title>LaProj5 | @yield('title', 'Catalogo')</title>
+        
+        <title>SporTickets | @yield('title', 'Home')</title>
+        
+        
+        <link rel="stylesheet" type="text/css" href="{{asset('css/ddsmoothmenu.css')}}" />
+        <link href="{{asset('css/tooplate_style.css')}}" rel="stylesheet" type="text/css" />
+        
+        
     </head>
-    <body id="bodyadmin">
-        <div id="wrapper">
-            <div id="menu">
-                @include('layouts/_navadmin')
-            </div>
-
-            <!-- end #menu -->
-            <div id="page">
-                <div id="page-bgtop">
-                    <div id="page-bgbtm">
-                        @yield('content')
-                        <div style="clear: both;">&nbsp;</div>
-                    </div>
+    <body>
+        <div id="tooplate_wrapper">
+            <div id="tooplate_header">
+                <div id="site_title">
+                    <h1><a href="{{ route('admin')}}">SportTikets</a></h1>
                 </div>
-            </div>
 
-            <!-- end #content -->
-            <div id="footer">
-                <br>
-                <p>universit&agrave; politecnica delle marche - Corso di  <a href="https://learn.univpm.it/course/view.php?id=7098">tecnologie web</a>.</p>
+                <div id="tooplate_menu" class="ddsmoothmenu">
+                    @include('layouts/_navadmin')
+                    <br style="clear: left" />
+                </div> <!-- end of menu -->
             </div>
-            <!-- end #footer -->
-        </div>
+        <div id="tooplate_main">
+             @yield('content')
+            <div class="cleaner"></div>
+            </div> 
+
+            
+             <!-- end of main -->
+             
+            
+            
+            <div id="tooplate_footer">
+            <footer>
+                
+                <p class="footer1"><a href="FAQ.html">FAQ</a></p>
+                <p class="footer1"><a href="{{ route('who') }}">Chi Siamo</a></p>
+                <p class="footer1"><a href="{{ route('where') }}">Lavora Con Noi</a></p>
+                Copyright © 2048 Company Name 
+            </footer> 
+            </div>
+        </div> <!-- end of main -->
     </body>
 </html>
