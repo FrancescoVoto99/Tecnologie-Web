@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\Resources\Event;
-use App\Http\Requests\NewProductRequest;
-
+use App\Http\Requests\InsertEventRequeste;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -26,7 +25,7 @@ class AdminController extends Controller
                        
     }
 
-    public function storeEvent(NewProductRequest $request) {
+    public function storeEvent(InsertEventRequeste $request) {
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -35,13 +34,13 @@ class AdminController extends Controller
             $imageName = NULL;
         }
 
-        $product = new Product;
-        $product->fill($request->validated());
-        $product->image = $imageName;
-        $product->save();
+        $event = new Event;
+        $event->fill($request->validated());
+        $event->image = $imageName;
+        $event->save();
 
         if (!is_null($imageName)) {
-            $destinationPath = public_path() . '/images/products';
+            $destinationPath = public_path() . '/images/event';
             $image->move($destinationPath, $imageName);
         };
 

@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
-
 use Illuminate\Foundation\Http\FormRequest;
-
 class InsertEventRequeste extends FormRequest
 {
     /**
@@ -16,7 +14,6 @@ class InsertEventRequeste extends FormRequest
         // Gestiamo l'autorizzazione ad un altro livello
         return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -27,11 +24,15 @@ class InsertEventRequeste extends FormRequest
             'nomeEvento' => 'required|max:25',
             'categoria' => 'required',
             'bigliettiDisponibili' => 'required|integer|min:0',
-            'image' => 'image|max:1024',
+            
             'prezzo' => 'required|numeric|min:0',
-            'discountPerc' => 'required|integer|min:0|max:100',
-            'discounted' => 'required',
-            'descLong' => 'required|max:2500'
+            'sconto' => 'required|integer|min:0|max:100',
+            'insconto' => 'required',
+            'descrizione' => 'required|max:2500',
+            'luogo' => 'required|max:2500',
+            'regione' => 'required',
+            'raggiungere'=>'required',
+            'image' => 'image|max:1024',
         ];
     }
 }

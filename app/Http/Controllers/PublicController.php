@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\NewEventRequest;
 
 
-use App\Models;
+use App\Models\Eventi;
+use App\Models\FAQs;
 
 class PublicController extends Controller
 {
@@ -15,7 +16,7 @@ class PublicController extends Controller
 
     public function __construct() {
         $this->_eventModel = new Eventi;
-        $this->_FAQModel = new FAQ;
+        $this->_FAQModel = new FAQs;
     }
 
     public function showEventi() {
@@ -63,7 +64,7 @@ class PublicController extends Controller
         $faq = $this->_FAQModel->getFAQ();
      
         return view('FAQ')
-                        ->with('faq', $faq);
+                        ->with('faqs', $faq);
     }
    
 
