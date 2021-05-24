@@ -70,5 +70,16 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('adminadmin'), 'role' => 'admin', 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")]
         ]);
+        DB::table('FAQ')->insert([
+            ['domanda' => 'Qual è la figura professionale più adatta a occuparsi dell’organizzazione?',
+                'risposta' =>'I manager e i professionisti che già prima si occupavano dell’organizzazione
+                di eventi sono sicuramente le figure aziendali più indicate.
+                Tuttavia, cambiando completamente la cornice dell’incontro e rendendosi necessario l’utilizzo
+                di strumenti tecnologici sarebbe bene affiancargli una figura più tecnica come un IT manager,
+                che abbia dimestichezza con l’utilizzo di strumenti di comunicazione digitale.
+                Il consiglio è di affiancare sempre al team aziendale interno una squadra esterna di professionisti
+                del settore che possano supportare le figure aziendali nel lavoro di organizzazione del meeting online
+                che, come abbiamo visto, è più complesso di quanto sembra.',]
+       ]);
     }
 }
