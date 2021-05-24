@@ -125,6 +125,7 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 	border-bottom: 1px solid #282828
 }
 
+
 .sb_box h3 {
 	color: #fff
 }
@@ -160,6 +161,19 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 	padding: 20px;
 	border-top: 5px solid #000;
 	background: #1d1d1d;
+}
+
+#tooplate_footer {
+	clear: both;
+	text-align: right;
+	padding: 20px;
+	border-top: 5px solid #000;
+	background: #1d1d1d;
+}
+
+.post_box2{
+    float: right;
+    
 }
 
 

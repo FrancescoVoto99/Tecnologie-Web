@@ -4,13 +4,16 @@
 
 @section('content')
 <div class="tooplate_wrapper">
-    <div class="tooplate_content">
-    <h3>Aggiungi Prodotti</h3>
-    <p>Utilizza questa form per inserire un nuovo prodotto nel Catalogo</p>
-
+    <div class="tooplate_content" id="tooplate_content">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/interfaccia_login.css')}}" />
     
-        <div class="post_box">
-            {{ Form::open(array('route' => 'newproduct.store', 'id' => 'addproduct', 'files' => true, 'class' => 'contact-form')) }}
+        <div  class="post_box">
+            <h3>Aggiungi Prodotti</h3>
+    <p>Utilizza questa form per inserire un nuovo prodotto nel Catalogo</p>
+                
+            </div>
+            
+            {{ Form::open(array('route' => 'newevent.store', 'id' => 'addproduct', 'files' => true, 'class' => 'contact-form')) }}
             <div  class="post_box">
                 {{ Form::label('nomeEvento', 'Nome Evento', ['class' => 'label-input']) }}
                 {{ Form::text('nomeEvento', '', ['class' => 'input']) }}
@@ -76,7 +79,7 @@
                 </ul>
                 @endif
             </div>
-
+               <div class="post_box2">
             <div  class="post_box">
                 {{ Form::label('discounted', 'In Sconto', ['class' => 'label-input']) }}
                 {{ Form::select('discounted', ['1' => 'Si', '0' => 'No'], 1, ['class' => 'input','id' => 'discounted']) }}
@@ -130,7 +133,7 @@
                 </ul>
                 @endif
             </div>
-            
+            </div>
             <div class="post_box">                
                 {{ Form::submit('Aggiungi Evento', ['class' => 'form-btn1']) }}
             </div>
@@ -139,4 +142,4 @@
         </div>
     </div>
 
-</div>
+@endsection

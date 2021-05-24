@@ -23,11 +23,13 @@ class CreateEventTable extends Migration
             $table->string('raggiungere',1000);
             $table->float('prezzo');
             $table->integer('bigliettiDisponibili');
-            $table->integer('bigliettiVenduti');
-            $table->float('incassoTotale');
-            $table->tinyInteger('sconto')->nullable();
+            $table->integer('bigliettiVenduti')->default(0);
+            $table->float('incassoTotale')->default(0);
+            $table->integer('sconto')->nullable();
+            $table->tinyInteger('insconto');
             $table->string('regione',20);
             $table->text('image')->nullable();
+            $table->integer('admin');
         });
     }
 
