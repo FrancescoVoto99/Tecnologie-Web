@@ -1,84 +1,64 @@
-<html>
-    <head>
-        <title>Home</title>
-        <link href="css/tooplate_style.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
-    </head>
-    <body>
-        <div id="tooplate_wrapper">
-            <div id="tooplate_header">
-                <div id="site_title">
-                    <h1><a href="home12.php">SportTikets</a></h1>
-                </div>
+@extends('layouts.public')
 
-                <div id="tooplate_menu" class="ddsmoothmenu">
-                    <ul>
-                        <li><a href="home12.php" class="selected">Home </a></li>
-                        <li><a href="login.html" >Login</a></li>
-                        <li><a href="registrati.html" >Registrati</a></li>
-                    </ul>
-                    <br style="clear: left" />
-                </div> <!-- end of menu -->
-            </div>
+@section('title','Home')
 
-            <div id="tooplate_main">
+@section('content')
+
+    
+
+        
                 <div id="tooplate_sidebar">
                     <div class="sb_box">
-                        <h3>Categories</h3>
+                        <h3>CATEGORIE</h3>
+                       <h1><a>Acquista</a><h1><img  src="images/carrello.png"  width="50" height="50" alt="eeee" /></a></p>
+                        
                     </div>
 
                 </div> <!-- end of sidebar -->
-                 <?php
-                include("include/connessione.php");
-                $sql= "select * from faq ";
+             
+           
+             <div id="tooplate_content">
+                 @isset($event)
+                 
+              <h2>{{ $event->nomeEvento }}</h2>
+                    
+               <img style="float: left" src="images/event/{{ $event->image }}" alt="{{ $event->image }}" width="300" height="168" />
+              <div class="latofoto1">                  
+               <p>Data:{{ $event->dataOra }}</p>
+                   <br></br>
+              <p>Prezzo:{{ $event->prezzo }}</p>
+                  <br></br>
+                   <p>Biglietti disponibili: {{ $event->bigliettiDisponibili }} </p>
+                     <br></br>
+                     
+                 </div>
+                   
+            <div class="sottofoto">
                 
-               
-                
-                $conn=mysqli_connect($HOST, $USER, $PASSWORD,$DB);
-                    $ris=mysqli_query($conn, $sql);
-                    while ( $row=mysqli_fetch_assoc($ris)) {
-                            $id=$row["id"];
-                            $do=$row["domanda"];
-                            $ri=$row["risposta"];
-                         
-                      
-                echo ' <div id="tooplate_content">';
-                echo '<div class="latofoto">';
-                echo "<p>DOMANDE:</p>";
-                echo "<p> $do </p>";
-                echo '<br></br>';
-                echo "<p>$ri</p>";
-                echo '<br></br>';
-                echo '<div class="cleaner h20"></div>';
-                echo '<br class="cleaner" />';
-                echo '<hr> </hr>';
-                echo '</div>';
-                    }
+                    
+            <p>{{ $event->descrizione}}</p>
+               </div>
+              <br></br>
                    
                     
-                mysqli_free_result($ris);
-                mysqli_close($conn);
-            ?>
                 
-
-
-                <div class="cleaner"></div>
-            </div>
-            <!-- end of main -->
-            <div class="cleaner"></div>
-        
-        <div id="tooplate_footer">
-            <footer>
+                    
+             <div style="float: left">
+             <iframe src="{{ $event->luogo}}" width=250 height=150></iframe>
+             </div>
+                    
+              <p class="latofoto1"> come raggiungerci
+               <br></br> 
                 
-                <p class="footer1"><a href="FAQ12.php">FAQ</a></p>
-                <p class="footer1" ><a href="chi_siamo.html">Chi Siamo</a></p>
-                <p class="footer1"><a href="lavora_con_noi.html">Lavora Con Noi</a></p>
-                
-                 
-                Copyright © 2048 Company Name </footer> 
-        </div>
-        </div> <!-- end of main -->	
-
-
-    </body>
-</html>
+                       
+              <p>{{ $event->raggiungere}}</p>
+                    
+               <div class="cleaner h20"></div>
+                   
+              <br class="cleaner" />
+               <hr></hr>
+               @endisset()
+             </div>
+     	
+ 
+@endsection

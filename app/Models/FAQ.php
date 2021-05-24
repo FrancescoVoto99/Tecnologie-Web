@@ -8,23 +8,10 @@ class FAQ {
 
   
     // Estrae i prodotti della categoria/e $catId (tutti o solo quelli in sconto), eventualmente ordinati
-    public function getFAQ($order = null, $discounted = null) {
+    public function getFAQ() {
        // da rivedere jhjhjhh
-        $prods = FAQ::where('id','!=',0);
-        if ($discounted != null) {
-            $prods = $prods->whereNotNull('sconto');
-        }
-        if (!is_null($order)) {
-            $prods = $prods->orderBy('discountPerc', $order);
-        }
-        
-    }
-   
-    
-    public function getEvent($id_event) {
-       // da rivedere jhjhjhh
-        $prod = FAQ::where("id", $id_event);
-        return $prod;
+        $faq = FAQ::where('id','!=',0);
+        return $faq;
     }
 
 }

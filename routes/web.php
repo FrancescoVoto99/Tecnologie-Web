@@ -56,6 +56,9 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')
 
 Route::post('register', 'Auth\RegisterController@register');
 
+Route::get('/FAQ', 'PublicController@showFAQ')
+        ->name('FAQ');
+
 Route::view('/where', 'where')
         ->name('where');
 
