@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
+
 class InsertEventRequeste extends FormRequest
 {
     /**
@@ -23,8 +24,8 @@ class InsertEventRequeste extends FormRequest
         return [
             'nomeEvento' => 'required|max:25',
             'categoria' => 'required',
+            'dataOra' => 'after:today',
             'bigliettiDisponibili' => 'required|integer|min:0',
-            
             'prezzo' => 'required|numeric|min:0',
             'sconto' => 'required|integer|min:0|max:100',
             'insconto' => 'required',
@@ -33,6 +34,7 @@ class InsertEventRequeste extends FormRequest
             'regione' => 'required',
             'raggiungere'=>'required',
             'image' => 'image|max:1024',
+            'admin' => 'required',
         ];
     }
 }

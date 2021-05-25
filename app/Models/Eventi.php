@@ -56,5 +56,11 @@ class Eventi {
         $prod = Event::where("id", $id_event);
         return $prod;
     }
+    
+    public function getMyEvents($id_admin) {
+       // da rivedere jhjhjhh
+        $events = Event::where("admin", $id_admin);
+        return $events->paginate(2);
+    }
 
 }

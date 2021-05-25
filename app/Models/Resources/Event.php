@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model {
     protected $table = 'events';
     protected $primaryKey = 'id';
+    protected $guarded = [];
     public $timestamps = false;
 
     public function getPrice($withDiscount = false) {

@@ -1,6 +1,6 @@
 <ul>
     <li><a href="{{ route('admin') }}" title="Va alla Home di Admin">Home</a></li>
-    <li><a href="{{ route('admin') }}" title="Visualizza i tuoi eventi">Eventi</a></li>
+    <li><a href="{{ route('myevents') }}" title="Visualizza i tuoi eventi">Eventi</a></li>
     <li><a href="{{ route('newevent') }}" title="Inserisce nuovi prodotti">Inserisci</a></li>
     <li><a href="{{ route('admin') }}" title="Modifica i Prodotti">Modifica</a></li>
     <li><a href="{{ route('admin') }}" title="Cancella o prodotti">Cancella</a></li>

@@ -11,7 +11,7 @@
             </div>
         <br>
             {{ Form::open(array('route' => 'newevent.store', 'id' => 'addproduct', 'files' => true, 'class' => 'contact-form')) }}
-            <div  class="post_box">
+           <div  class="post_box">
                 {{ Form::label('nomeEvento', 'Nome Evento', ['class' => 'label-input']) }}
                 {{ Form::text('nomeEvento', '', ['class' => 'input']) }}
                 @if ($errors->first('nomeEvento'))
@@ -47,6 +47,13 @@
                 @endif
             </div>
             <br>
+            {{ Form::label('dataOra', 'Data', ['class' => 'label-input']) }}
+            {{Form::date('dataOra', \Carbon\Carbon::now())}}<br></br>
+                    <ul class="errors">
+                    @foreach ($errors->get('dataOra') as $message)
+                    <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
             <div  class="post_box">
                 {{ Form::label('bigliettiDisponibili', 'Biglietti Disponibili', ['class' => 'label-input']) }}
                 {{ Form::text('bigliettiDisponibili', '', ['class' => 'input', 'id' => 'descShort']) }}
