@@ -42,6 +42,15 @@ class AdminController extends Controller
         return view('event.insert');
                        
     }
+    
+    public function editEvent($id_event) {
+        
+        $events = $this->_eventModel->getEvents();
+        $event = $events->where('id', $id_event)->first();
+        return view('event.editevent')
+                            ->with('event',$event);
+                       
+    }
 
     public function storeEvent(InsertEventRequeste $request) {
 
@@ -49,7 +58,7 @@ class AdminController extends Controller
             $image = $request->file('image');
             $imageName = $image->getClientOriginalName();
         } else {
-            $imageName = NULL;
+            $imageName = "default.jpg";
         }
 
         $event = new Event;

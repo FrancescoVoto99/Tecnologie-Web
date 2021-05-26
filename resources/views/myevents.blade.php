@@ -1,19 +1,9 @@
-@extends('layouts.admin')
+@extends('layouts.public')
 
 @section('title','I miei Eventi')
 
 @section('content')
-<script type="text/javascript">
 
-function ConfermaOperazione(id) {
-var conferma = window.confirm("sei sicuro di voler eliminare l'evento");
-if(conferma){
-  window.location.href = {{ route('delete',id)}};  
-}
-else
-return 
-}
-</script>
 
 <div id="tooplate_sidebar">
     <div class="sb_box">
@@ -33,7 +23,7 @@ return
 
     @foreach ($events as $event)
     <h2><a name="{{ $event->id }}" href="{{ route('evento', [$event->id]) }}"> {{ $event->nomeEvento }}</a></h2>
-    <img src="images/event/{{ $event->image }}" alt="{{ $event->image }}" width="300" height="168" />
+    <img src="{{ asset('images/event/'.$event->image) }}" alt="{{ $event->image }}" width="300" height="168" />
     <div class="latofoto">
         <p>Prezzo:  {{ $event->prezzo }}</p>
         <br></br>
@@ -45,8 +35,13 @@ return
     </div>
     <br></br><br></br>
     <p>{{ $event->descrizione}}</p>
-    <button type="button" onclick="{{ route('delete', [$event->id] }}">Elimina evento</button>
-    <button type="button" onclick="{{ route('editevent', [$event->id] }}">Modifica evento</button>
+     <form action="" target=_blank> 
+        <input type="submit" value="Elimina"> 
+    </form>
+    <br>
+    <form action="{{route('editevent', [$event->id] )}}"> 
+        <input type="submit" value="Modifica evento"> 
+    </form>
     <div class="cleaner h20"></div>
     <br class="cleaner" />
 

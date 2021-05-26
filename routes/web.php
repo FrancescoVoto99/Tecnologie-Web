@@ -29,6 +29,12 @@ Route::get('/admin/newevent', 'AdminController@addEvent')
 Route::post('/admin/newevent', 'AdminController@storeEvent')
         ->name('newevent.store');
 
+Route::get('/admin/editevent/{id_event}', 'AdminController@editEvent')
+        ->name('editevent');
+
+Route::post('/admin/editevent', 'AdminController@storeeditEvent')
+        ->name('editevent.store');
+
 Route::get('/admin/myevents', 'AdminController@showMyEvents')
         ->name('myevents');
 
