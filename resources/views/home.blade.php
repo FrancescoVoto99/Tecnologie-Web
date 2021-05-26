@@ -18,6 +18,7 @@
 </div>    
 
 <div id="tooplate_content">
+    
     @isset($events)
 
     @foreach ($events as $event)

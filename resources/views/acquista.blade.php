@@ -25,7 +25,7 @@
                <img style="float: left" src="../images/event/{{ $event->image }}" alt="{{ $event->image }}" width="300" height="168" />
               <div class="latofoto1">  
                <p>Data:{{ $event->dataOra }}</p>
-                   <br></br>
+                   <br>
               <p>Prezzo:{{ $event->prezzo }}</p>
                   <br>
                    <p>Biglietti disponibili: {{ $event->bigliettiDisponibili }} </p>
@@ -38,7 +38,7 @@
                     
             <p>{{ $event->descrizione}}</p>
                </div>
-              <br></br>
+              <br>
                    
                     
                 

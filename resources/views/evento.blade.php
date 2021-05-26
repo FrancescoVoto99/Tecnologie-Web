@@ -30,7 +30,7 @@
                   <br>
                    <p>Biglietti disponibili: {{ $event->bigliettiDisponibili }} </p>
                      <br>
-                     <h2><a>Acquista<img  src="../images/carrello.png" style="right"  width="30" height="30" alt="eeee"></a></h2>
+                     <h2><a name="{{ $event->id }}" href="{{ route('evento', [$event->id]) }}">Acquista<img  src="../images/carrello.png" style="right"  width="30" height="30" alt="eeee"></a></h2>
                  </div>
                    
             <div class="sottofoto">
