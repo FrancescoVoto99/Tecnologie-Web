@@ -25,6 +25,9 @@ class AdminController extends Controller
     public function index() {
         return view('admin');
     }
+    public function MioAccaunt() {
+        return view('MioAccauntAdmin');
+    }
     
     public function showMyEvents() {
 
