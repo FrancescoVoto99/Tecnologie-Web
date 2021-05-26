@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Eventi;
+
+
 class UserController extends Controller
 {
     
     public function __construct() {
         $this->middleware('auth');
+        $this->_eventModel = new Eventi;
     }
 
     public function index() {
@@ -44,6 +48,16 @@ public function update(User $user)
     }
      
     public function Acquista($id_event) {
+
+        $events = $this->_eventModel->getEvents();
+        $event = $events->where('id', $id_event)->first();
+        
+
+        return view('acquista')
+                        ->with('event', $event);
+    }
+    
+    public function Acquista2($id_event) {
 
         $acquista = $this->_acquistaModel->getAcquist();
         $acquista = $acquistas->where('id', $id_event)->first();

@@ -14,7 +14,7 @@
              
            
              <div id="tooplate_content">
-                 @isset($acquista)
+                 @isset($event)
                  
               
                @endisset()

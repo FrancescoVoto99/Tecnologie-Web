@@ -44,8 +44,8 @@ Route::get('/user/mioaccaunt', 'UserController@MioAccaunt')
 Route::post('/user/mioaccaunt', 'UserController@editMioAccaunt')
         ->name('mioaccaunt.edit');
 
-Route::get('/user/Acquista/{id_event}', 'UserController@Acquista')
-        ->name('Acquista');
+Route::get('/user/acquista/{id_event}', 'UserController@Acquista')
+        ->name('acquista');
 
 // Rotte per l'autenticazione
 Route::get('login', 'Auth\LoginController@showLoginForm')
