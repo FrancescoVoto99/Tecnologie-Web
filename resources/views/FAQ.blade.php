@@ -11,7 +11,7 @@
             @isset($faqs)
             @foreach ($faqs as $faq)
             
-                <h2 name="{{ $faq->id }}"> {{ $faq->domande }}</h2>
+                <h3 name="{{ $faq->id }}"> {{ $faq->domande }}</h3>
             <p name="{{ $faq->id }}" > {{ $faq->risposte }}</p>
             <br>
             

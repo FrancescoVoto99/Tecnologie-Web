@@ -71,8 +71,9 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => date("Y-m-d H:i:s")]
         ]);
         DB::table('faq')->insert([
-            ['domanda' => 'Qual è la figura professionale più adatta a occuparsi dell’organizzazione?',
-                'risposta' =>'I manager e i professionisti che già prima si occupavano dell’organizzazione
+            ['domande' => 'Qual è la figura professionale più adatta a occuparsi dell’organizzazione?',
+                
+                'risposte' =>'I manager e i professionisti che già prima si occupavano dell’organizzazione
                 di eventi sono sicuramente le figure aziendali più indicate.
                 Tuttavia, cambiando completamente la cornice dell’incontro e rendendosi necessario l’utilizzo
                 di strumenti tecnologici sarebbe bene affiancargli una figura più tecnica come un IT manager,
