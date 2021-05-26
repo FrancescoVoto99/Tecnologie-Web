@@ -42,5 +42,15 @@ public function update(User $user)
         
         return back();
     }
+     
+    public function Acquista($id_event) {
+
+        $acquista = $this->_acquistaModel->getAcquist();
+        $acquista = $acquistas->where('id', $id_event)->first();
+        
+
+        return view('acquista')
+                        ->with('acquista', $acquista);
+    }
 
 }

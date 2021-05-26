@@ -67,5 +67,4 @@ class PublicController extends Controller
                         ->with('faqs', $faq);
     }
    
-
 }
