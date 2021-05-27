@@ -35,7 +35,7 @@
     </div>
     <br></br><br></br>
     <p>{{ $event->descrizione}}</p>
-     <form action="" target=_blank> 
+     <form action="{{route('deletevent', [$event->id] )}}"> 
         <input type="submit" value="Elimina"> 
     </form>
     <br>

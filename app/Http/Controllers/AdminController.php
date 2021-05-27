@@ -68,7 +68,7 @@ class AdminController extends Controller
         
         $event->save();
 
-        if (!is_null($imageName)) {
+        if ($imageName!="default.jpg") {
             $destinationPath = public_path() . '/images/event';
             $image->move($destinationPath, $imageName);
         };
@@ -76,4 +76,30 @@ class AdminController extends Controller
         return redirect()->action('AdminController@index');
     }
 
+    public function storeeditEvent(InsertEventRequeste $request) {
+        $event = Event::find($request->get('id'));
+        
+        $event->fill($request->validated());
+        
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+            $event->image = $imageName;
+        }
+        $event->save();
+          
+
+        if (isset($imageName)) {
+            $destinationPath = public_path() . '/images/event';
+            $image->move($destinationPath, $imageName);
+        }
+
+        return redirect()->action('AdminController@index');
+    
+}
+    public function deletEvent($id_event){
+       $this->_eventModel->deletEvent($id_event);
+        return redirect()->action('AdminController@showMyEvents');
+                        
+    }
 }

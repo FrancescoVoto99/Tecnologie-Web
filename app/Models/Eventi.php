@@ -62,5 +62,11 @@ class Eventi {
         $events = Event::where("admin", $id_admin);
         return $events->paginate(2);
     }
+    
+    public function deletEvent ($id_event) {
+       $event = Event::find($id_event);
+        $event->delete();
+        return;
+        }
 
 }

@@ -35,6 +35,9 @@ Route::get('/admin/editevent/{id_event}', 'AdminController@editEvent')
 Route::post('/admin/editevent', 'AdminController@storeeditEvent')
         ->name('editevent.store');
 
+Route::get('/admin/delitevent/{id_event}', 'AdminController@deletEvent')
+        ->name('deletevent');
+
 Route::get('/admin/myevents', 'AdminController@showMyEvents')
         ->name('myevents');
 

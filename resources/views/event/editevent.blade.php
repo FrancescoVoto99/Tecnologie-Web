@@ -10,9 +10,15 @@
             <h3>Aggiungi Prodotti</h3>
     <p>Utilizza questa form per inserire un nuovo prodotto nel Catalogo</p>
             </div>
+        
         <br>
             {{ Form::open(array('route' => 'editevent.store', 'id' => 'addproduct', 'files' => true, 'class' => 'contact-form')) }}
-           <div  class="post_box">
+          
+            <div style="display:none;">
+                       {{ Form::text('id',$event->id, ['class' => 'input',]) }}
+                   </div>
+            
+            <div  class="post_box">
                 {{ Form::label('nomeEvento', 'Nome Evento', ['class' => 'label-input']) }}
                 {{ Form::text('nomeEvento',$event->nomeEvento, ['class' => 'input']) }}
                 @if ($errors->first('nomeEvento'))

@@ -22,6 +22,7 @@ class InsertEventRequeste extends FormRequest
      */
     public function rules() {
         return [
+            'id'=>'',
             'nomeEvento' => 'required|max:25',
             'categoria' => 'required',
             'dataOra' => 'after:today',
