@@ -22,7 +22,7 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    
 
     /**
      * Where to redirect users after registration.
@@ -40,7 +40,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+         $this->middleware('can:isAmm');
     }
 
     /**
@@ -76,8 +76,12 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
             'societa' => $data['societa'],
-            'role'=>$data['role'],
+            'role'=>'admin',
         ]);
+    }
+     protected function showRegistrationForm()
+    {
+        return view('auth/registerAdmin');
     }
     
     public function profileUpdate(array $data){

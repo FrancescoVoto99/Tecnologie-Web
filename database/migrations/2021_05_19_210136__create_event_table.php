@@ -30,6 +30,7 @@ class CreateEventTable extends Migration
             $table->string('regione',20);
             $table->text('image')->nullable();
             $table->integer('admin');
+            $table->string('societa');
         });
     }
 

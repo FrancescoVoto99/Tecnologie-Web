@@ -57,7 +57,7 @@
                 </ul>
                 @endif
             </div>
-             @can('isAmm')
+            @if (@can('isAmm'))
             <div  class="post_box">
                 {{ Form::label('societa', 'Nome Società', ['class' => 'label-input']) }}
                 {{ Form::text('societa', '', ['class' => 'input','id' => 'username']) }}
@@ -70,15 +70,16 @@
                 @endif
             </div>
             @endcan
+            @endif
             
-            @guest
+            @else
 
             <div  class="post_box" style="display: none">
                 {{ Form::text('societa', '', ['class' => 'input','id' => 'username']) }}
                 
             </div>
             
-            @endguest
+            @endelse
             
              <div  class="post_box">
                 {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
@@ -96,22 +97,6 @@
                 {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-input']) }}
                 {{ Form::password('password_confirmation', ['class' => 'input', 'id' => 'password-confirm']) }}
             </div>
-            
-            @can('isAmm')
-            <div  class="post_box" style="display: none">
-                {{ Form::text('role', 'admin', ['class' => 'input','id' => 'username']) }}
-                
-            </div>
-            @endcan
-            
-            @guest
-
-            <div  class="post_box" style="display: none">
-                {{ Form::text('role', 'user', ['class' => 'input','id' => 'username']) }}
-                
-            </div>
-            
-            @endguest
             
             <div class="button">                
                 {{ Form::submit('Registra', ['class' => 'butcton']) }}

@@ -44,6 +44,11 @@ Route::get('/admin/myevents', 'AdminController@showMyEvents')
 Route::get('/admin', 'AdminController@index')
         ->name('admin');
 
+Route::get('/amm', 'AmmController@index')
+        ->name('amm');
+
+
+
 Route::get('/user', 'UserController@index')
         ->name('user')->middleware('can:isUser');
 
