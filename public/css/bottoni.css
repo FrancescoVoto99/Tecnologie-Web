@@ -16,13 +16,13 @@ form {
     width: 360px;
     margin: 30px auto;
 }
-input {
+.input{
 	font: 14px 'Open Sans', sans-serif;
     border: 2px solid #ccc;
     padding: 6px;
     display: block;
-	margin-bottom: 10px;
-    width: 96%;
+    margin-bottom: 10px;
+    width: 100%;
     
 }
 button {
