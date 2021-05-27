@@ -52,7 +52,7 @@
 
                     <fieldset title="Luogo ">
                         <!--STQ:ITREGION-->
-                       {{Form::select('regg', ['Abruzzo' => 'Abruzzo', 'Basilicata' => 'Basilicata', 'Calabria' => 'Calabria',
+                       {{Form::select('regg', [null => '<--Seleziona-->','Abruzzo' => 'Abruzzo', 'Basilicata' => 'Basilicata', 'Calabria' => 'Calabria',
                                      'Campania' => 'Campania', 'Emilia Romagna' => 'Emilia-Romagna', 'Friuli Venezia Giulia' => 'Friuli-Venezia Giulia',
                                      'Lazio' => 'Lazio', 'Liguria' => 'Liguria', 'Lombardia' => 'Lombardia',
                                      'Marche' => 'Marche', 'Molise' => 'Molise', 'Piemonte' => 'Piemonte',

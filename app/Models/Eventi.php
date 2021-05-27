@@ -39,7 +39,7 @@ class Eventi {
                 $cate=array($filter['cate']);
                 $events = $events->whereIn('categoria', $cate);
             }
-            if(key_exists( 'regg',$filter)){
+            if($filter['regg']!=null){
                 $regione=array($filter['regg']);
                 $events = $events->whereIn('regione', $regione);
             }

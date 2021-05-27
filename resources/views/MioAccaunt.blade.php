@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="{{asset('css/interfaccia_login.css')}}" />
     <h1><center>Il mio accaunt</center></h1>
   
-            {{ Form::open(array('route' => 'register', 'class' => 'contact-form')) }}
+            {{ Form::open(array('route' => 'mioaccaunt.edit', 'class' => 'contact-form')) }}
 
             <div  class="post_box">
                 {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}

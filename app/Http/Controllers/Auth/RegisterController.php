@@ -76,5 +76,23 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-
+    
+    public function profileUpdate(array $data){
+        //validation rules
+        $user =Auth::user();
+        $user= fill($data);
+        $user->save();
+        //return back()->with('message','Profile Updated');
+    }
+    
+    protected function update(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'surname' => $data['surname'],
+            'email' => $data['email'],
+            'username' => $data['username'],
+            'password' => Hash::make($data['password']),
+        ]);
+    }
 }

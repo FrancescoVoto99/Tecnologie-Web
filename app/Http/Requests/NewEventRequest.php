@@ -26,7 +26,7 @@ class NewEventRequest extends FormRequest
     {
         return [
             'cerca' => '',
-            'dataOra' => 'after:today',
+            'dataOra' => 'after:yesterday',
             'cate' => '',
             'regg' => ''
             

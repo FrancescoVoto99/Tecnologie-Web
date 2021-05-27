@@ -26,12 +26,18 @@
               <div class="latofoto1">  
                <p>Data:{{ $event->dataOra }}</p>
                    <br></br>
-              <p>Prezzo:{{ $event->prezzo }}</p>
+              <p>Prezzo:{{ $event->prezzo }} €</p>
                   <br>
                    <p>Biglietti disponibili: {{ $event->bigliettiDisponibili }} </p>
                      <br>
-                     <h2><a name="{{ $event->id }}" href="{{ route('acquista', [$event->id]) }}">Acquista<img  src="../images/carrello.png" style="right"  width="30" height="30" alt="eeee"></a></h2>
-                 </div>
+                     
+                         
+                     @can('isUser')
+                    <h2><a name="{{ $event->id }}" href="{{ route('acquista', [$event->id]) }}">Acquista<img  src="../images/carrello.png" style="right"  width="30" height="30" alt="eeee"></a></h2>
+                    @endcan('isUser')
+                    <br>
+                    <br>
+              </div>
                    
             <div class="sottofoto">
                 

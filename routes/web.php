@@ -50,7 +50,7 @@ Route::get('/user', 'UserController@index')
 Route::get('/user/mioaccaunt', 'UserController@MioAccaunt')
         ->name('mioaccount');
 
-Route::post('/user/mioaccaunt', 'UserController@editMioAccaunt')
+Route::post('/user/mioaccaunt', 'Auth\RegisterController@profileUpdate')
         ->name('mioaccaunt.edit');
 
 Route::get('/user/acquista/{id_event}', 'UserController@Acquista')
