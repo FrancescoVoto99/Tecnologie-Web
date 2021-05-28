@@ -13,5 +13,16 @@ class FAQs {
         $faq = FAQ::where('id','!=',0)->get();
         return $faq;
     }
-
+    
+    public function getFAQbyid($id_faq) {
+       // da rivedere jhjhjhh
+        $faq = FAQ::where('id',$id_faq)->first();
+        return $faq;
+    }
+    
+    public function deleteFAQ ($id_faq) {
+       $faq = FAQs::find($id_faq);
+        $faq->delete();
+        
+        }
 }

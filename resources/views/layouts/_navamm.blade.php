@@ -1,7 +1,6 @@
-<ul>
-    <li><a href="{{ route('eventi')}}" class="selected" title="lista eventi">Home </a></li>
-    <li><a href="{{ route('register')}}">Inserisci Organizzatore</a></li>
-    <li><a href="registrati.html" >Inserisci Evento</a></li>
-    <li><a href="login.html" >Il Mio Accout</a></li>
+
     
-</ul>
+<li><a href="{{ route('newadmin')}}"style="color: blue">Inserisci Organizzatore</a></li>
+    <li><a href="{{ route('alluser')}}" style="color: blue" >Utenti</a></li>
+    
+    

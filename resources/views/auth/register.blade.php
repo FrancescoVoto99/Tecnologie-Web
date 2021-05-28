@@ -57,29 +57,7 @@
                 </ul>
                 @endif
             </div>
-             @can('isAmm')
-            <div  class="post_box">
-                {{ Form::label('societa', 'Nome Società', ['class' => 'label-input']) }}
-                {{ Form::text('societa', '', ['class' => 'input','id' => 'username']) }}
-                @if ($errors->first('societa'))
-                <ul class="errors">
-                    @foreach ($errors->get('societa') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-            </div>
-            @endcan
-            
-            @guest
-
-            <div  class="post_box" style="display: none">
-                {{ Form::text('societa', '', ['class' => 'input','id' => 'username']) }}
-                
-            </div>
-            
-            @endguest
-            
+    
              <div  class="post_box">
                 {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
                 {{ Form::password('password', ['class' => 'input', 'id' => 'password']) }}
@@ -97,21 +75,6 @@
                 {{ Form::password('password_confirmation', ['class' => 'input', 'id' => 'password-confirm']) }}
             </div>
             
-            @can('isAmm')
-            <div  class="post_box" style="display: none">
-                {{ Form::text('role', 'admin', ['class' => 'input','id' => 'username']) }}
-                
-            </div>
-            @endcan
-            
-            @guest
-
-            <div  class="post_box" style="display: none">
-                {{ Form::text('role', 'user', ['class' => 'input','id' => 'username']) }}
-                
-            </div>
-            
-            @endguest
             
             <div class="button">                
                 {{ Form::submit('Registra', ['class' => 'butcton']) }}

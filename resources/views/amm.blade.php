@@ -1,4 +1,4 @@
-@extends('layouts.amm')
+@extends('layouts.public')
 
 @section('title', 'Area Admin')
 

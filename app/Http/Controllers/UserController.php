@@ -58,9 +58,7 @@ public function update(User $user)
             'surname' => 'required| string| max:255',
             'email' => 'required|string|email|max:255',
             'username' => 'required| string| min:8',
-            'role' =>'',
             'password' => 'required| string|min:8| confirmed',
-            'societa' => '',
         ]);
         
         $user = User::find($request->get('id'));

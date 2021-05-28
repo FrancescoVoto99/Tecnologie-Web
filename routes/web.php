@@ -47,6 +47,34 @@ Route::get('/admin', 'AdminController@index')
 Route::get('/amm', 'AmmController@index')
         ->name('amm');
 
+Route::get('/amm/allUser', 'AmmController@showAllUser')
+        ->name('alluser');
+
+Route::get('/amm/deliteuser/{id_user}', 'AmmController@deleteUser')
+        ->name('deleteuser');
+
+Route::get('/amm/newadmin', 'AmmController@addAdmin')
+        ->name('newadmin');
+
+Route::post('/amm/newadmin', 'AmmController@storeAdmin')
+        ->name('newadmin.store');
+
+Route::get('/amm/newfaq', 'AmmController@addFAQ')
+        ->name('newfaq');
+
+Route::post('/amm/newfaq', 'AmmController@storeFAQ')
+        ->name('newfaq.store');
+
+
+Route::get('/amm/editfaq/{id_faq}', 'AmmController@editFAQ')
+        ->name('editfaq');
+
+Route::post('/amm/editfaq', 'AmmController@storeeditFAQ')
+        ->name('editfaq.store');
+
+Route::get('/amm/delitefaq/{id_user}', 'AmmController@deleteFAQ')
+        ->name('deletefaq');
+
 
 
 Route::get('/user', 'UserController@index')

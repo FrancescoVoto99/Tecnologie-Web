@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class FAQ extends Model {
     protected $table = 'faq';
     protected $primaryKey = 'id';
+    protected $guarded = [];
     public $timestamps = false;
 
     // Realazione One-To-One con Category

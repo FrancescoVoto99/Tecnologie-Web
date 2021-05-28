@@ -21,6 +21,19 @@ class Eventi {
         }
         return $prods->paginate(2);
     }
+    
+    public function getSocieta($order = null, $discounted = null) {
+       // da rivedere jhjhjhh
+        $prods = Event::where('id','!=',0);
+        if ($discounted != null) {
+            $prods = $prods->whereNotNull('sconto');
+        }
+        if (!is_null($order)) {
+            $prods = $prods->orderBy('discountPerc', $order);
+        }
+        return $prods->paginate(2);
+    }
+    
     public function getEventsFilter($filter, $order = null, $discounted = null) {
        // da rivedere jhjhjhh
         $events = Event::where("sconto",null);

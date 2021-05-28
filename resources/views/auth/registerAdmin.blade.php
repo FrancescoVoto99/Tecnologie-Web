@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="{{asset('css/interfaccia_login.css')}}" />
     <h1><center>Registrati</center></h1>
   
-            {{ Form::open(array('route' => 'register', 'class' => 'contact-form')) }}
+            {{ Form::open(array('route' => 'newadmin.store', 'class' => 'contact-form')) }}
 
             <div  class="post_box">
                 {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}
@@ -57,7 +57,7 @@
                 </ul>
                 @endif
             </div>
-            @if (@can('isAmm'))
+            
             <div  class="post_box">
                 {{ Form::label('societa', 'Nome Società', ['class' => 'label-input']) }}
                 {{ Form::text('societa', '', ['class' => 'input','id' => 'username']) }}
@@ -69,18 +69,7 @@
                 </ul>
                 @endif
             </div>
-            @endcan
-            @endif
-            
-            @else
 
-            <div  class="post_box" style="display: none">
-                {{ Form::text('societa', '', ['class' => 'input','id' => 'username']) }}
-                
-            </div>
-            
-            @endelse
-            
              <div  class="post_box">
                 {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
                 {{ Form::password('password', ['class' => 'input', 'id' => 'password']) }}
@@ -97,6 +86,12 @@
                 {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-input']) }}
                 {{ Form::password('password_confirmation', ['class' => 'input', 'id' => 'password-confirm']) }}
             </div>
+            
+            <div  class="post_box" style="display: none">
+                {{ Form::text('role', 'admin', ['class' => 'input','id' => 'username']) }}
+                
+            </div>
+            
             
             <div class="button">                
                 {{ Form::submit('Registra', ['class' => 'butcton']) }}

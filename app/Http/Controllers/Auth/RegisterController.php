@@ -55,10 +55,8 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            //'role'=>[],
             'username' => ['required', 'string', 'min:8', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'societa' => ['required', 'string'],
         ]);
     }
 
@@ -75,9 +73,8 @@ class RegisterController extends Controller
             'surname' => $data['surname'],
             'email' => $data['email'],
             'username' => $data['username'],
-            'role'=>$data['role'],
             'password' => Hash::make($data['password']),
-            'societa' => $data['societa'],
+            
             
         ]);
     }
@@ -85,7 +82,7 @@ class RegisterController extends Controller
     public function profileUpdate(array $data){
        
         $user =Auth::find($data['id']);
-        $user->nome= $data['name'];
+        $user->name= $data['name'];
         $user->surname= $data['surname'];
         $user->email= $data['email'];
         $user->password= $data['password'];
