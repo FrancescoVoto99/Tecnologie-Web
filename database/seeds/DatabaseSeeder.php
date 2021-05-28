@@ -61,14 +61,14 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             ['name' => 'Alex', 'surname' => 'Verdi', 'email' => 'alex@verdi.it', 'username' => 'alexalex',
-                'password' => Hash::make('alexalex'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")],
+                'password' => Hash::make('alexalex'), 'role' => 'amm','created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),'societa'=>null],
             ['name' => 'Marco', 'surname' => 'Bianchi', 'email' => 'marco@bianchi.it', 'username' => 'useruser',
                 'password' => Hash::make('useruser'), 'role' => 'user', 'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")],
+                'updated_at' => date("Y-m-d H:i:s"),'societa'=>null],
             ['name' => 'Mario', 'surname' => 'Rossi', 'email' => 'mario@rossi.it', 'username' => 'adminadmin',
                 'password' => Hash::make('adminadmin'), 'role' => 'admin', 'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),'societa'=>'Eventstore',]
+                'updated_at' => date("Y-m-d H:i:s"),'societa'=>'Eventstore'],
         ]);
         DB::table('faq')->insert([
             ['domande' => 'Qual è la figura professionale più adatta a occuparsi dell’organizzazione?',

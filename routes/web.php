@@ -53,10 +53,10 @@ Route::get('/user', 'UserController@index')
         ->name('user')->middleware('can:isUser');
 
 Route::get('/user/mioaccaunt', 'UserController@MioAccaunt')
-        ->name('mioaccount');
+        ->name('mioaccount')->middleware('can:isUser');
 
 Route::post('/user/mioaccaunt', 'Auth\RegisterController@profileUpdate')
-        ->name('mioaccaunt.edit');
+        ->name('mioaccaunt.edit')->middleware('can:isUser');
 
 Route::get('/user/acquista/{id_event}', 'UserController@Acquista')
         ->name('acquista');

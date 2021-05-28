@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Eventi;
+use App\User;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 
 class UserController extends Controller
@@ -20,7 +24,7 @@ class UserController extends Controller
     }
     
      public function MioAccaunt() {
-        return view('MioAccaunt');
+        return view('auth/MioAccaunt');
     }
     
 
@@ -45,6 +49,26 @@ public function update(User $user)
         $user->save();
         
         return back();
+    }
+    public function profileUpdate(Request $request){
+        //validation rules
+
+        $request->validate([
+            'name' => 'required|string| max:255',
+            'surname' => 'required| string| max:255',
+            'email' => 'required|string|email|max:255',
+            'username' => 'required| string| min:8',
+            'role' =>'',
+            'password' => 'required| string|min:8| confirmed',
+            'societa' => '',
+        ]);
+        
+        $user = User::find($request->get('id'));
+        
+        $user->fill($request->validated());
+        
+        $user->save();
+        return back()->with('message','Profile Updated');
     }
      
     public function Acquista($id_event) {
