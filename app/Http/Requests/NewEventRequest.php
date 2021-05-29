@@ -28,7 +28,8 @@ class NewEventRequest extends FormRequest
             'cerca' => '',
             'dataOra' => 'after:yesterday',
             'cate' => '',
-            'regg' => ''
+            'regg' => '',
+            'societa'=>''
             
             ];
     }

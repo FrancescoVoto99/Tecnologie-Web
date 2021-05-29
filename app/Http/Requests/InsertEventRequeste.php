@@ -36,6 +36,7 @@ class InsertEventRequeste extends FormRequest
             'raggiungere'=>'required',
             'image' => 'image|max:1024',
             'admin' => 'required',
+            'societa'=>''
         ];
     }
 }

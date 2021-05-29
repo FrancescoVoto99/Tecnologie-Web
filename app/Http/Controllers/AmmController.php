@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\InsertAdminRequeste;
 use App\Http\Requests\UpdateAdminRequeste;
 use App\Http\Requests\InsertFAQRequeste;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Models\FAQs;
 use App\Models\Resources\FAQ;
@@ -35,6 +36,7 @@ class AmmController extends Controller
         $user = new User;
         
         $user->fill($request->validated());
+        $user->password=Hash::make($request->get('password'));
         $user->role = 'admin';
         
         $user->save();

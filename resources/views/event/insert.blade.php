@@ -153,6 +153,9 @@
                        {{ Form::text('admin', Auth::user()->id, ['class' => 'input',]) }}
                    </div>
             </div>
+            <div style="display:none;">
+                       {{ Form::text('societa', Auth::user()->societa, ['class' => 'input',]) }}
+                   </div>
             <br>
             <div class="post_box">                
                 {{ Form::submit('Aggiungi Evento', ['class' => 'form-btn1']) }}

@@ -66,6 +66,7 @@ class AdminController extends Controller
         $event->fill($request->validated());
         $event->image = $imageName;
         
+        
         $event->save();
 
         if ($imageName!="default.jpg") {

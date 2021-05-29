@@ -22,21 +22,20 @@ class Eventi {
         return $prods->paginate(2);
     }
     
-    public function getSocieta($order = null, $discounted = null) {
+    public function getSocieties() {
        // da rivedere jhjhjhh
-        $prods = Event::where('id','!=',0);
-        if ($discounted != null) {
-            $prods = $prods->whereNotNull('sconto');
-        }
-        if (!is_null($order)) {
-            $prods = $prods->orderBy('discountPerc', $order);
-        }
-        return $prods->paginate(2);
+        $societies = Event::pluck('societa','admin');
+        
+        //$societies = $societies[];
+         
+        
+        //array_unshift($societies,'<--Seleziona-->');
+        return $societies;
     }
     
     public function getEventsFilter($filter, $order = null, $discounted = null) {
        // da rivedere jhjhjhh
-        $events = Event::where("sconto",null);
+        $events = Event::where('id','!=',0);
         if ($discounted != null) {
             $events = $events->whereNotNull('sconto');
         }
@@ -55,6 +54,10 @@ class Eventi {
             if($filter['regg']!=null){
                 $regione=array($filter['regg']);
                 $events = $events->whereIn('regione', $regione);
+            }
+            if($filter['societa']!=null){
+                $societa=array($filter['societa']);
+                $events = $events->whereIn('admin', $societa);
             }
              $new_date = date('Y-m-d', strtotime($filter['dataOra']));
            

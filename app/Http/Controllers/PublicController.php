@@ -49,15 +49,18 @@ class PublicController extends Controller
         //Prodotti in sconto di tutte le categorie, ordinati per sconto decrescente
         // map estrae solo le categorie tra tutte le tuple
         $events = $this->_eventModel->getEvents();
+        $societies= $this->_eventModel->getSocieties();
         return view('eventi')
-                        ->with('events', $events);
+                        ->with('events', $events)
+                        ->with('societies', $societies);
     }
     public function searchEventiFilter( NewEventRequest $request) {
         $filter=$request->validated();
         $events = $this->_eventModel->getEventsFilter($filter);
-        
+        $societies= $this->_eventModel->getSocieties();
         return view('eventi')
-                        ->with('events', $events);
+                        ->with('events', $events)
+                        ->with('societies', $societies);
     }
       public function showFAQ() {
         

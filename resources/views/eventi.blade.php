@@ -64,6 +64,16 @@
                             
                     </fieldset>
                     <br></br>
+                    @isset($societies)
+                    <h3>SOCIETA'</h3>
+                    
+                    <fieldset title="Società organizzatrice ">
+                       
+                {{ Form::select('societa', $societies, ['class' => 'input','id' => 'catId']) }}
+                            
+                    </fieldset>
+                   @endisset($societies)
+                    <br></br>
 
                     {{ Form::submit('Cerca') }}
                 </form>{{ Form::close() }}
