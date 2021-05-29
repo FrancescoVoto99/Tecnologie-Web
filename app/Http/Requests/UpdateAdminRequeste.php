@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
-class InsertAdminRequeste extends FormRequest
+class UpdateAdminRequeste extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,11 @@ class InsertAdminRequeste extends FormRequest
         return [
             'name' => 'required|string| max:255',
             'surname' => 'required| string| max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => '',
             'role'=>'',
-            'username' => 'required| string| min:8| unique:users',
-            'password' => 'required| string|min:8| confirmed',
-            'societa'=>'string|',
+            'username' => '',
+            'password' => 'required|string|min:8| confirmed',
+            'societa'=>'string',
             
         ];
     }

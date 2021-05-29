@@ -50,8 +50,21 @@ Route::get('/amm', 'AmmController@index')
 Route::get('/amm/allUser', 'AmmController@showAllUser')
         ->name('alluser');
 
+Route::get('/amm/allAdmin', 'AmmController@showAllAdmin')
+        ->name('alladmin');
+
 Route::get('/amm/deliteuser/{id_user}', 'AmmController@deleteUser')
         ->name('deleteuser');
+
+Route::get('/amm/editAdmin/{id_admin}', 'AmmController@editAdmin')
+        ->name('editadmin');
+
+Route::post('/amm/editAdmin/{id_admin}', 'AmmController@updateAdmin')
+        ->name('editadmin.store');
+
+
+Route::post('/amm/editfaq', 'AmmController@storeeditFAQ')
+        ->name('editfaq.store');
 
 Route::get('/amm/newadmin', 'AmmController@addAdmin')
         ->name('newadmin');

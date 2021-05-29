@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\InsertAdminRequeste;
+use App\Http\Requests\UpdateAdminRequeste;
 use App\Http\Requests\InsertFAQRequeste;
 use App\User;
 use App\Models\FAQs;
@@ -38,7 +39,23 @@ class AmmController extends Controller
         
         $user->save();
 
-        return redirect()->action('AmmController@index');
+        return redirect()->action('AmmController@showAllAdmin');
+    }
+    
+    public function editAdmin($id_admin) {
+        $user=User::where('id',$id_admin)->first();
+        return view('editAdmin')
+                            ->with('user', $user);
+                       
+    }
+    public function updateAdmin(UpdateAdminRequeste $request, $id_admin) {
+
+        $user = User::find($id_admin);
+        $user->fill($request->validated());
+        
+        $user->save();
+
+        return redirect()->action('AmmController@showAllAdmin');
     }
    
     public function showAllUser() {
@@ -49,12 +66,23 @@ class AmmController extends Controller
                        ->with('users', $users);
     }
     
+    public function showAllAdmin() {
+       $users=User::where('role','admin')->get();
+       
+        
+        return view('allAdmin')
+                       ->with('users', $users);
+    }
+    
     public function deleteUser($id_user){
        
        $user = User::find($id_user);
         $user->delete();
-       
-        return redirect()->action('AmmController@showAllUser');                
+       if($user->role== 'user')
+        return redirect()->action('AmmController@showAllUser');           
+       else
+           return redirect()->action('AmmController@showAllAdmin'); 
+           
     }
     
         public function addFAQ() {

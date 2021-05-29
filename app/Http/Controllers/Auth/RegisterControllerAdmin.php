@@ -84,22 +84,13 @@ class RegisterController extends Controller
         return view('auth/registerAdmin');
     }
     
-    public function profileUpdate(array $data){
+    public function profileUpdate(array $data,$id_admin){
         //validation rules
-        $user =Auth::user();
+        $user =Auth::find($id_admin);
         $user= fill($data);
         $user->save();
         //return back()->with('message','Profile Updated');
     }
     
-    protected function update(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'surname' => $data['surname'],
-            'email' => $data['email'],
-            'username' => $data['username'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
+    
 }
