@@ -6,7 +6,7 @@
 <div id="tooplate_wrapper">
     <div id="tooplate_content">
         <link rel="stylesheet" type="text/css" href="{{asset('css/interfaccia_login.css')}}" />
-    <h1><center>Registrati</center></h1>
+    <h1><center>Registra Organizzatore</center></h1>
   
             {{ Form::open(array('route' => 'newadmin.store', 'class' => 'contact-form')) }}
 

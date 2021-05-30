@@ -3,20 +3,6 @@
 @section('title','Home')
 
 @section('content')
-
-    
-
-        
-                <div id="tooplate_sidebar">
-                    <div class="sb_box">
-                        <h3>CATEGORIE</h3>
-                       
-                        
-                    </div>
-
-                </div> <!-- end of sidebar -->
-             
-           
              <div id="tooplate_content">
                  @isset($event)
                  
@@ -65,6 +51,13 @@
                
                @endisset()
              </div>
-     	
+     	<div id="tooplate_sidebar">
+    <div class="sb_box">
+                    <h2><b>SOCIAL</b></h2>
+                    <a href="https://it-it.facebook.com/"><img src="../images/facebook-32x32.png" title="facebook" alt="facebook" /></a>
+                <a href="https://twitter.com/"><img src="../images/twitter-32x32.png" title="twitter" alt="twitter" /></a>
+                <a href="https://www.youtube.com/"><img src="../images/youtube-32x32.png" title="youtube" alt="youtube" /></a>
+            </div>
+</div>
  
 @endsection

@@ -7,15 +7,11 @@
 
 <div id="tooplate_sidebar">
     <div class="sb_box">
-        <h3>Eventi</h3>  
-        @isset($events)
-        <ul class="lista_eventi">
-            @foreach ($events as $event)
-            <li><a href="#{{ $event->id }}">{{ $event->nomeEvento }}</a></li>
-            @endforeach
-        </ul>
-        @endisset()
-    </div>
+                    <h2><b>SOCIAL</b></h2>
+                    <a href="https://it-it.facebook.com/"><img src="../images/facebook-32x32.png" title="facebook" alt="facebook" /></a>
+                <a href="https://twitter.com/"><img src="../images/twitter-32x32.png" title="twitter" alt="twitter" /></a>
+                <a href="https://www.youtube.com/"><img src="../images/youtube-32x32.png" title="youtube" alt="youtube" /></a>
+            </div>
 </div>    
 
 <div id="tooplate_content">
@@ -35,13 +31,13 @@
     </div>
     <br></br><br></br>
     <p>{{ $event->descrizione}}</p>
-     <form action="{{route('deletevent', [$event->id] )}}"> 
-        <input type="submit" value="Elimina"> 
+     <center><form action="{{route('deletevent', [$event->id] )}}"> 
+             <input type="submit" value="Elimina">
     </form>
-    <br>
+         <br>
     <form action="{{route('editevent', [$event->id] )}}"> 
-        <input type="submit" value="Modifica evento"> 
-    </form>
+        <input type="submit" value="Modifica evento">
+    </form></center> 
     <div class="cleaner h20"></div>
     <br class="cleaner" />
 

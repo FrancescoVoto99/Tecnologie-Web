@@ -9,7 +9,12 @@ body {
 	background-image: url(../images/sfondo3.jpg);
 	background-repeat: repeat;
 }
-
+a{
+    color:#0264a9;
+    font-weight: normal;
+    font-size: 24px;
+    text-decoration: none;
+}
 
 a:hover { 
 	text-decoration: underline; 
@@ -61,11 +66,9 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 }
 .footer1 { 
         float: left;
-        text-align: center;
-        font-style: italic;
         padding: 0 20px;
-        color:#a91767;
-        font-size: 13px;
+        color:#0264a9;
+        font-size: 16px;
 }
 
 
@@ -124,7 +127,7 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 	width: 230px;
 	float: left;
 	margin-right: 10px;
-	color: #a91767; 
+	color: #fff; 
 }
 
 
@@ -135,7 +138,7 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 
 
 .sb_box h3 {
-	color: #fff
+	color: #0264a9
 }
 .evento {
         font-family:'Brush Script MT';
@@ -161,14 +164,6 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 	width: 640px;
 	padding: 40px;
 	float: right;
-}
-
-#tooplate_footer {
-	clear: both;
-	text-align: right;
-	padding: 20px;
-	border-top: 5px solid #000;
-	background: #1d1d1d;
 }
 
 #tooplate_footer {

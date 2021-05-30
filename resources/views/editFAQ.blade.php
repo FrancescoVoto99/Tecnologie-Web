@@ -5,24 +5,21 @@
 <div class="tooplate_wrapper">
    @isset($faq)
     <div class="tooplate_content" id="tooplate_content">
-        <link rel="stylesheet" type="text/css" href="{{asset('css/interfaccia_login.css')}}" />
-        <div  class="post_box">
-            <h1>Modifica FAQ</h1>
-    <p>Utilizza questa form per modificare la FAQ</p>
-            </div>
-         
+        
+        <h1><center>Modifica FAQ</center></h1>
         <br>
             {{ Form::open(array('route' => 'editfaq.store', 'class' => 'contact-form')) }}
-          
+            <div class="post_box">
             <div style="display:none;">
                        {{ Form::text('id',$faq->id, ['class' => 'input',]) }}
                    </div>
             
-            <fieldset >
+            <fieldset>
 
             <div  class="post_box">
-                {{ Form::label('domande', 'Inserisci la Domanda:', ['class' => 'label-input']) }}
-                {{ Form::textarea('domande', $faq->domande, ['class' => 'input']) }}
+                <h3>{{ Form::label('domande', 'Domanda:', ['class' => 'label-input']) }}</h3>
+                <br>
+                <center>{{ Form::textarea('domande', $faq->domande, ['class' => 'input']) }}</center>
                 @if ($errors->first('domande'))
                 <ul class="errors">
                     @foreach ($errors->get('domande') as $message)
@@ -35,12 +32,14 @@
             <br>
              <fieldset>
             <div  class="post_box">
-                {{ Form::label('risposte', 'Inserisci Risposta:', ['class' => 'label-input']) }}
-                {{ Form::textarea('risposte', $faq->risposte, ['class' => 'input']) }}
+                <h3>{{ Form::label('risposte', 'Risposta:', ['class' => 'label-input']) }}</h3>
+                <br>
+                <center>{{ Form::textarea('risposte', $faq->risposte, ['class' => 'input']) }}</center>
                 @if ($errors->first('domande'))
                 <ul class="errors">
                     @foreach ($errors->get('domande') as $message)
                     <li>{{ $message }}</li>
+                    
                     @endforeach
                 </ul>
                 @endif
@@ -53,6 +52,7 @@
             </div>
             {{ Form::close() }}
         </div>
-    @endisset
     </div>
+    @endisset
+</div>
 @endsection

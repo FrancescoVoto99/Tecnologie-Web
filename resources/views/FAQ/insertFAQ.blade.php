@@ -5,10 +5,10 @@
 <div class="tooplate_wrapper">
    
     <div class="tooplate_content" id="tooplate_content">
-        <link rel="stylesheet" type="text/css" href="{{asset('css/interfaccia_login.css')}}" />
+        
         <div  class="post_box">
-            <h1>Inserisci FAQ</h1>
-    <p>Utilizza questa form per inserire la FAQ</p>
+            <h1><center>INSERISCI FAQ</center></h1>
+    
             </div>
          
         <br>
@@ -18,8 +18,9 @@
             <fieldset >
 
             <div  class="post_box">
-                {{ Form::label('domande', 'Inserisci la Domanda:', ['class' => 'label-input']) }}
-                {{ Form::textarea('domande','', ['class' => 'input']) }}
+                <h3>{{ Form::label('domande', 'Inserisci la Domanda:', ['class' => 'label-input']) }}</h3>
+                <br>
+                <center>{{ Form::textarea('domande','', ['class' => 'input']) }}</center>
                 @if ($errors->first('domande'))
                 <ul class="errors">
                     @foreach ($errors->get('domande') as $message)
@@ -32,8 +33,9 @@
             <br>
              <fieldset>
             <div  class="post_box">
-                {{ Form::label('risposte', 'Inserisci Risposta:', ['class' => 'label-input']) }}
-                {{ Form::textarea('risposte', '', ['class' => 'input']) }}
+                <h3>{{ Form::label('risposte', 'Inserisci Risposta:', ['class' => 'label-input']) }}</h3>
+                <br>
+                <center>{{ Form::textarea('risposte', '', ['class' => 'input']) }}</center>
                 @if ($errors->first('domande'))
                 <ul class="errors">
                     @foreach ($errors->get('domande') as $message)

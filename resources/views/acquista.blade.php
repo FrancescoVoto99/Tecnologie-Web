@@ -4,8 +4,11 @@
 
 @section('content')
 
+
              <div id="tooplate_content">
-                 <form>
+               
+                 
+                 <form name="miaform">
                  <link rel="stylesheet" type="text/css" href="{{asset('css/bottoni.css')}}" />
                  @isset($event)
                  
@@ -22,7 +25,17 @@
                     <p><input type="radio" name="linguaggio"  value="carta"> Carta di credito</p>
                     <p><input type="radio" name="linguaggio" value="html">Paypal</p>
                     <p><input type="radio" name="linguaggio" value="html"/>Conto corrente</p>
-                    <h2>Totale : {{ $event->prezzo }}</h2>
+                    <script type="text/javascript">
+                  
+                        window.onload = function () {
+                document.getElementById('someid').onchange = function () {
+                    getProvincia(this.options[this.selectedIndex].text);
+                };
+                };
+                    
+                    </script>
+                    
+                    <h2>Totale : {{ $event->prezzo}}</h2>
                     <input type="button" class="input" value=paga> 
                  
             </form>
