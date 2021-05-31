@@ -46,7 +46,8 @@
                 </ul>
                 @endif
             </div>
-            <br>
+            
+            <div  class="post_box">
             {{ Form::label('dataOra', 'Data', ['class' => 'label-input']) }}
             {{Form::date('dataOra', \Carbon\Carbon::now())}}<br></br>
                     <ul class="errors">
@@ -54,6 +55,10 @@
                     <li>{{ $message }}</li>
                     @endforeach
                 </ul>
+           
+            </div>
+            
+            
             <div  class="post_box">
                 {{ Form::label('bigliettiDisponibili', 'Biglietti Disponibili', ['class' => 'label-input']) }}
                 {{ Form::text('bigliettiDisponibili', '', ['class' => 'input', 'id' => 'descShort']) }}

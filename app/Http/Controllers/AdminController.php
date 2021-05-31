@@ -45,8 +45,7 @@ class AdminController extends Controller
     
     public function editEvent($id_event) {
         
-        $events = $this->_eventModel->getEvents();
-        $event = $events->where('id', $id_event)->first();
+        $event = $this->_eventModel->getEvent($id_event);
         return view('event.editevent')
                             ->with('event',$event);
                        
@@ -65,7 +64,6 @@ class AdminController extends Controller
         
         $event->fill($request->validated());
         $event->image = $imageName;
-        
         
         $event->save();
 

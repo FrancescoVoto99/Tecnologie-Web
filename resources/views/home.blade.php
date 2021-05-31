@@ -25,12 +25,13 @@
     
 <img width="75%"src="images/sport1.jpg" alt="sport" align="right">
 <div id="tooplate_content">
-    
+    <h2>Prossimi Eventi:</h2>
     @isset($events)
+    @foreach ($events as $event)
    
 
     <div class="col_2 float_r">
-         <h2>Evento Principale:</h2>
+         
          <h2><a name="{{ $event->id}}" href="{{route('evento',[$event->id])}}">{{ $event->nomeEvento}}</a></h2>
    <img src="images/event/{{ $event->image }}" alt="{{ $event->image }}" width="250" height="128" class="image_frame" />
                 <p><em>{{$event->descrizione}} </em></p>
@@ -39,14 +40,7 @@
     <div class="cleaner h20"></div>
     <br class="cleaner" />
     </div>
-    <div class="col_2 float_r">
-         <h2>Ultimo Evento:</h2>
-    <h2><a name="{{ $event->id}}" href="{{ route('evento', [$event->id]) }}"> {{ $event->nomeEvento }}</a></h2>
-    <img src="images/event/{{ $event->image }}" alt="{{ $event->image }}" width="250" height="128" class="image_frame" />
-     <p><em>{{$event->descrizione}} </em></p>
- 
-            </div>
- 
+    @endforeach 
     @endisset()
     
 </div>

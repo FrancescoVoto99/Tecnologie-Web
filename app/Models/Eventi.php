@@ -17,9 +17,21 @@ class Eventi {
             $prods = $prods->whereNotNull('sconto');
         }
         if (!is_null($order)) {
-            $prods = $prods->orderBy('discountPerc', $order);
+            $prods = $prods->orderBy('dataOra', $order);
         }
         return $prods->paginate(2);
+    }
+    public function getEventsOrder($order) {
+       // da rivedere jhjhjhh
+        $events = Event::where('id','!=',0);
+        
+        
+            $events = $events->orderBy('dataOra', $order)->get();
+            $events=array($events);
+            array_slice($events, 0, 2);
+                    
+        
+        return $events;
     }
     
     public function getSocieties() {
@@ -45,7 +57,7 @@ class Eventi {
         if($filter!=null){
             
             if(key_exists( 'cerca', $filter)){
-            $events = $events->where("descrizione","LIKE",$filter['cerca']);
+            $events = $events->where('descrizione','like','%'.$filter['cerca'].'%');
             }
             if(key_exists( 'cate', $filter) ){
                 $cate=array($filter['cate']);
@@ -69,8 +81,8 @@ class Eventi {
     
     public function getEvent($id_event) {
        // da rivedere jhjhjhh
-        $prod = Event::where("id", $id_event);
-        return $prod;
+        $event = Event::where("id", $id_event)->first();
+        return $event;
     }
     
     public function getMyEvents($id_admin) {
