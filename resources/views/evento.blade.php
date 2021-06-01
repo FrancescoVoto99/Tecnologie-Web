@@ -12,7 +12,11 @@
               <div class="latofoto1">  
                <p>Data:{{ $event->dataOra }}</p>
                    <br></br>
-              <p>Prezzo:{{ $event->prezzo }} €</p>
+                   
+              <div class="prezzo">
+                        @include('helpers/EventPrice')
+                    </div>
+                   
                   <br>
                    <p>Biglietti disponibili: {{ $event->bigliettiDisponibili }} </p>
                      <br>

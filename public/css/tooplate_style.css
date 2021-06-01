@@ -115,6 +115,36 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 	float: right; 
 	margin-top: 85px; 
 }
+.prezzobox{
+	float:left;
+    width: 140px;
+	height: inherit;
+}
+
+.prezzobox p {
+	margin-top: 5px;
+	margin-bottom: 5px;
+        font-size: 21px;
+        font-weight: bold;
+}
+
+.prezzo{
+    color: #424954;
+    font-family: Verdana;
+    padding-right: 10px;
+    font-size: 21px;
+    font-weight: bold;
+    
+}
+
+.discprezzo{
+    color: #CC0000;
+    font-family: Verdana;
+	padding-right: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    
+}
 
 
 
