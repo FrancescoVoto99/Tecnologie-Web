@@ -71,8 +71,7 @@ public function update(User $user)
      
     public function Acquista($id_event) {
 
-        $events = $this->_eventModel->getEvents();
-        $event = $events->where('id', $id_event)->first();
+        $event = $this->_eventModel->getEvent($id_event);
         
 
         return view('acquista')

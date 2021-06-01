@@ -11,7 +11,8 @@
             $('#someid')
                     .on('click', function (event) {
                         var prezzo = $('#tiket').text() * $(this).val();
-                        putprice(prezzo);
+                
+                        putprice(prezzo.toFixed(2));
                     });
         });
         function putprice(text) {
@@ -22,13 +23,20 @@
     <form name="miaform">
         <link rel="stylesheet" type="text/css" href="{{asset('css/bottoni.css')}}" />
         @isset($event)
+        
+        @php
+    $prezzo=$event->prezzo;
+    $prezzo=$event->insconto?round(($prezzo-($prezzo*$event->sconto)/100), 2):$prezzo;
+@endphp
+
+
 
         <h2>Acquisto del biglietto: {{ $event->nomeEvento }}</h2>
 
 
         <p>Data/Ora:{{ $event->dataOra }}</p>
         <br>
-        <p >Prezzo biglietto :<b id="tiket">{{ $event->prezzo }}</b></p>
+        <p >Prezzo biglietto :<b id="tiket">{{ number_format($prezzo, 2) }}</b>€</p>
         <br>
 
         <p id="console">Numero di biglietti da acquistare:<input name="someid" id="someid" value="1" min="1" max="{{ $event->bigliettiDisponibili }}" type="number" onkeypress="return isNumberKey(evt)"></p>
@@ -39,8 +47,8 @@
 
 
         <br><br>
-
-        <label><b>Totale:<b><input type="number" value="{{ $event->prezzo}}" id="prezzo" readonly>€</label>
+        
+        <label><b>Totale:</b><input type="number" value="{{ number_format($prezzo, 2) }}" id="prezzo" readonly>€</label>
                     <br><br>
 
                     <input type="button" class="input" value=paga> 
