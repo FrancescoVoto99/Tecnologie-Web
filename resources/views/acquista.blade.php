@@ -23,8 +23,8 @@
                     <p>Numero di biglietti da acquistare:<input name="someid"  value="1" min="1" max="{{ $event->bigliettiDisponibili }}" type="number" onkeypress="return isNumberKey(evt)"></p>
                     
                     <p><input type="radio" name="linguaggio"  value="carta"> Carta di credito</p>
-                    <p><input type="radio" name="linguaggio" value="html">Paypal</p>
-                    <p><input type="radio" name="linguaggio" value="html"/>Conto corrente</p>
+                    <p><input type="radio" name="linguaggio" value="html">cPaypal</p>
+                    <p><input type="radio" name="linguaggio" value="html"/> Conto corrente</p>
                     <script type="text/javascript">
                   
                         window.onload = function () {
