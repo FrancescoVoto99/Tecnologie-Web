@@ -15,6 +15,7 @@
 
 <div id="tooplate_main">
         <div id="tooplate_content">
+            <center><h1>FAQ</h1></center>
             @can('isAmm')
             
             <form  action="{{route('newfaq')}}"> 

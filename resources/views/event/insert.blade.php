@@ -6,8 +6,8 @@
     <div class="tooplate_content" id="tooplate_content">
         <link rel="stylesheet" type="text/css" href="{{asset('css/interfaccia_login.css')}}" />
         <div  class="post_box">
-            <h3>Aggiungi Prodotti</h3>
-    <p>Utilizza questa form per inserire un nuovo prodotto nel Catalogo</p>
+            <center><h1>INSERISCI EVENTO</h1></center>
+    
             </div>
         <br>
             {{ Form::open(array('route' => 'newevent.store', 'id' => 'addproduct', 'files' => true, 'class' => 'contact-form')) }}

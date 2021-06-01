@@ -15,21 +15,21 @@
 
 <div id="tooplate_content">
     @isset($users)
-    <h1 style="text-align: center"><b>Utenti</b></h1> 
+    <h1 style="text-align: center"><b>UTENTI</b></h1> 
     
     @foreach ($users as $user)
     
     <fieldset >
         <br>
-    <h1>{{ $user->name }} {{ $user->surname }}</h1>
+        <center><h2><b>{{ $user->name }} {{ $user->surname }}</b></h2></center>
     
     <h3>Username:{{ $user->username}}<h3>
             
     <h3>Email:{{ $user->email}}<h3>
             
-            <form action="{{route('deleteuser', [$user->id] )}}"> 
+            <center><form action="{{route('deleteuser', [$user->id] )}}"> 
         <input type="submit" value="Elimina" class="butcton"> 
-            </form></fieldset>
+                </form></center></fieldset>
             
            
     <div class="cleaner h20"></div>
