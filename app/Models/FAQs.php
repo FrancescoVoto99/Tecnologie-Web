@@ -21,7 +21,7 @@ class FAQs {
     }
     
     public function deleteFAQ ($id_faq) {
-       $faq = FAQs::find($id_faq);
+       $faq = FAQ::find($id_faq);
         $faq->delete();
         
         }

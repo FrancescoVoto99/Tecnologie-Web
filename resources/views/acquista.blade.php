@@ -19,8 +19,8 @@
             $('#prezzo').val(text);
         }
     </script>
-
-    <form name="miaform">
+ {{ Form::open(array('route' => ['buytickets','idevento'=>$event->id],'name' => 'miaform')) }}
+    
         <link rel="stylesheet" type="text/css" href="{{asset('css/bottoni.css')}}" />
         @isset($event)
         
@@ -39,7 +39,7 @@
         <p >Prezzo biglietto :<b id="tiket">{{ number_format($prezzo, 2) }}</b>€</p>
         <br>
 
-        <p id="console">Numero di biglietti da acquistare:<input name="someid" id="someid" value="1" min="1" max="{{ $event->bigliettiDisponibili }}" type="number" onkeypress="return isNumberKey(evt)"></p>
+        <p id="console">Numero di biglietti da acquistare:<input name="quantita" id="someid" value="1" min="1" max="{{ $event->bigliettiDisponibili }}" type="number" onkeypress="return isNumberKey(evt)"></p>
 
         <p><input type="radio" name="linguaggio"  value="carta"> Carta di credito</p>
         <p><input type="radio" name="linguaggio" value="html">Paypal</p>
@@ -48,12 +48,26 @@
 
         <br><br>
         
-        <label><b>Totale:</b><input type="number" value="{{ number_format($prezzo, 2) }}" id="prezzo" readonly>€</label>
+        <label><b>Totale:</b><input type="number" name="prezzo" value="{{ number_format($prezzo, 2) }}" id="prezzo" readonly>€</label>
                     <br><br>
+                    
+                    
+                    
+                 
+           <div  class="post_box" style="display: none">
+               
+               {{ Form::text('idevento',$event->id) }}
+                
+          </div>
+                    
+                    
+     
 
-                    <input type="button" class="input" value=paga> 
-
-                    </form>
+                                
+                {{ Form::submit('Acquista', ['class' => 'input']) }}
+          
+            {{ Form::close() }}
+              
                     <div class="cleaner h20"></div>
 
                     <br class="cleaner" />

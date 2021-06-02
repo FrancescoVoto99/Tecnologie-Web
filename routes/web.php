@@ -102,6 +102,9 @@ Route::post('/user/mioaccaunt', 'Auth\RegisterController@profileUpdate')
 Route::get('/user/acquista/{id_event}', 'UserController@Acquista')
         ->name('acquista');
 
+Route::post('/user/acquista/{idevento}', 'UserController@BuyTicket')
+        ->name('buytickets');
+
 // Rotte per l'autenticazione
 Route::get('login', 'Auth\LoginController@showLoginForm')
         ->name('login');

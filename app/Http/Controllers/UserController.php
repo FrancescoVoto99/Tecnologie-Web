@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Eventi;
+use App\Models\Resources\Ticket;
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BuyTickets;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -76,6 +78,16 @@ public function update(User $user)
 
         return view('acquista')
                         ->with('event', $event);
+    }
+    
+    public function BuyTicket (BuyTickets $request, $idevento) {
+
+        $ticket = new Ticket;
+        $ticket->fill($request->validated());
+        $ticket->idutente = auth()->user()->id;
+        $ticket->idevento = $idevento;
+        $ticket->save();
+        return redirect()->action('UserController@index');
     }
     
     public function Acquista2($id_event) {

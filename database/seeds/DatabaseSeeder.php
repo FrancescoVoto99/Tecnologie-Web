@@ -83,7 +83,7 @@ class DatabaseSeeder extends Seeder
                 che, come abbiamo visto, è più complesso di quanto sembra.',]
        ]);
         DB::table('tickets')->insert([
-            ['dataOra' => date("Y-m-d H:i:s"), 'quantità' => 1, 'prezzo' => 30,],
+            ['quantita' => 1, 'prezzo' => 30,'idevento' => 1,'idutente' => 1],
              ]);
     }
 }
