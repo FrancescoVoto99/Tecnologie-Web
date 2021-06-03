@@ -44,7 +44,7 @@
             
              <div  class="post_box">
                 {{ Form::label('email', 'Email', ['class' => 'label-input']) }}
-                {{ Form::text('email', Auth::user()->email , ['class' => 'input','id' => 'email']) }}
+                {{ Form::text('email', Auth::user()->email , ['class' => 'input','id' => 'email','readonly']) }}
                 @if ($errors->first('email'))
                 <ul class="errors">
                     @foreach ($errors->get('email') as $message)
@@ -56,7 +56,7 @@
             
              <div  class="post_box">
                 {{ Form::label('username', 'Nome Utente', ['class' => 'label-input']) }}
-                {{ Form::text('username', Auth::user()->username , ['class' => 'input','id' => 'username']) }}
+                {{ Form::text('username', Auth::user()->username , ['class' => 'input','id' => 'username','readonly']) }}
                 @if ($errors->first('username'))
                 <ul class="errors">
                     @foreach ($errors->get('username') as $message)
@@ -83,14 +83,6 @@
                 {{ Form::password('password_confirmation', ['class' => 'input', 'id' => 'password-confirm']) }}
             </div>
             
-            <div  class="post_box" style="display: none">
-                {{ Form::text('societa', 'ciao', ['class' => 'input','id' => 'username']) }}
-                
-            </div>
-            <div  class="post_box" style="display: none">
-                {{ Form::text('role', Auth::user()->role, ['class' => 'input','id' => 'username']) }}
-                
-            </div>
             
             <div class="button">                
                 {{ Form::submit('Modifica', ['class' => 'butcton']) }}

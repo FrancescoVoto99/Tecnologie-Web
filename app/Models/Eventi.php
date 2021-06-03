@@ -52,22 +52,22 @@ class Eventi {
         return $societies;
     }
     
-    public function getEventsFilter($filter, $order = null, $discounted = null) {
+    public function getEventsFilter($filter, $order = null) {
        // da rivedere jhjhjhh
         $events = Event::where('id','!=',0);
-        if ($discounted != null) {
-            $events = $events->whereNotNull('sconto');
-        }
+        
         if (!is_null($order)) {
             $events = $events->orderBy('discountPerc', $order);
-    }
+    }       
+    
         if($filter!=null){
+            
             
             if(key_exists( 'cerca', $filter)){
             $events = $events->where('descrizione','like','%'.$filter['cerca'].'%');
             }
             if(key_exists( 'cate', $filter) ){
-                $cate=array($filter['cate']);
+                $cate=$filter['cate'];
                 $events = $events->whereIn('categoria', $cate);
             }
             if($filter['regg']!=null){
@@ -82,7 +82,8 @@ class Eventi {
            
                 $events = $events->where('dataOra','>',$new_date);
         }
-        return $events->paginate(2);
+       
+        return $events;
         
     }
     

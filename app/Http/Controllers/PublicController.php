@@ -57,9 +57,9 @@ class PublicController extends Controller
     }
     public function searchEventiFilter( NewEventRequest $request) {
         $filter=$request->validated();
-        $events = $this->_eventModel->getEventsFilter($filter);
+        $events = $this->_eventModel->getEventsFilter($filter)->get();
         $societies= $this->_eventModel->getSocieties();
-        return view('eventi')
+        return view('eventifilter')
                         ->with('events', $events)
                         ->with('societies', $societies);
     }

@@ -96,7 +96,7 @@ Route::get('/user', 'UserController@index')
 Route::get('/user/mioaccaunt', 'UserController@MioAccaunt')
         ->name('mioaccount')->middleware('can:isUser');
 
-Route::post('/user/mioaccaunt', 'Auth\RegisterController@profileUpdate')
+Route::post('/user/mioaccaunt', 'UserController@profileUpdate')
         ->name('mioaccaunt.edit')->middleware('can:isUser');
 
 Route::get('/user/acquista/{id_event}', 'UserController@Acquista')

@@ -18,12 +18,14 @@
                     </div>
                    
                   <br>
-                   <p>Biglietti disponibili: {{ $event->bigliettiDisponibili }} </p>
+                   <p>Biglietti disponibili: {{ $event->bigliettiDisponibili-$event->bigliettiVenduti }} </p>
                      <br>
                      
                          
                      @can('isUser')
+                      @if($event->bigliettiDisponibili-$event->bigliettiVenduti>0)
                     <h2><a name="{{ $event->id }}" href="{{ route('acquista', [$event->id]) }}">Acquista<img  src="../images/carrello.png" style="right"  width="30" height="30" alt="eeee"></a></h2>
+                      @endif
                     @endcan('isUser')
                     <br>
                     <br>

@@ -47,9 +47,11 @@
                 @endif
             </div>
             
+            
             <div  class="post_box">
             {{ Form::label('dataOra', 'Data', ['class' => 'label-input']) }}
-            {{Form::date('dataOra', \Carbon\Carbon::now())}}<br></br>
+                    <input id="dataOra" type="datetime-local" name="dataOra" value="{{ old('dataOra') }}">
+            
                     <ul class="errors">
                     @foreach ($errors->get('dataOra') as $message)
                     <li>{{ $message }}</li>

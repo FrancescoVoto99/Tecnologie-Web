@@ -11,6 +11,7 @@ use App\Models\Resources\Event;
 use App\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BuyTickets;
+use App\Http\Requests\UpdateUserRequeste;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -31,47 +32,15 @@ class UserController extends Controller
      public function MioAccaunt() {
         return view('auth/MioAccaunt');
     }
-    
-
-public function update(User $user)
-    { 
-
-        $this->validate(request(), [
-            'name' => 'required|string| max:255',
-            'surname' => 'required| string| max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'username' => 'required| string| min:8| unique:users',
-            'password' => 'required| string|min:8| confirmed',
-        ]);
-
-        $user->name = Request::input('name');
-        $user->surname = Request::input('surname');
-        $user->email = Request::input('email');
-        $user->username = Request::input('username');
-        $user->password = Hash::make(Request::input('password'));
+ 
+    public function profileUpdate(UpdateUserRequeste $request){
         
 
-        $user->save();
-        
-        return back();
-    }
-    public function profileUpdate(Request $request){
-        //validation rules
-
-        $request->validate([
-            'name' => 'required|string| max:255',
-            'surname' => 'required| string| max:255',
-            'email' => 'required|string|email|max:255',
-            'username' => 'required| string| min:8',
-            'password' => 'required| string|min:8| confirmed',
-        ]);
-        
-        $user = User::find($request->get('id'));
+        $user = User::find(auth()->user()->id);
         
         $user->fill($request->validated());
-        
         $user->save();
-        return back()->with('message','Profile Updated');
+        return redirect()->action('UserController@index');
     }
      
     public function Acquista($id_event) {
@@ -93,7 +62,7 @@ public function update(User $user)
         $ticket->save();
         $event = Event::find($idevento);
         $event->incassoTotale = $event->incassoTotale +$request->get('prezzo');
-        $event->bigliettiVenduti = $event->incassoVenduti +$request->get('quantita');
+        $event->bigliettiVenduti = $event->bigliettiVenduti +$request->get('quantita');
         $event->save();
         return redirect()->action('UserController@MyTickets');
     }

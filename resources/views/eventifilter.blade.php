@@ -105,9 +105,9 @@
 
     <hr> </hr>
     @endforeach
-    <!--Paginazione-->
-    @include('pagination.paginator', ['paginator' => $events])
     @endisset()
+   
+   
 </div>
 
 

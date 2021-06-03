@@ -78,41 +78,5 @@ class RegisterController extends Controller
             
         ]);
     }
-    
-    public function profileUpdate(array $data){
-       
-        $user =Auth::find($data['id']);
-        $user->name= $data['name'];
-        $user->surname= $data['surname'];
-        $user->email= $data['email'];
-        $user->password= $data['password'];
- 
-        $user->save();
-        
-        return redirect()->action('AdminController@index');
-        //return back()->with('message','Profile Updated');
-    }
-    
-    protected function update(array $data)
-    {
-        $event = Event::find($request->get('id'));
-        
-        $event->fill($request->validated());
-        
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = $image->getClientOriginalName();
-            $event->image = $imageName;
-        }
-        $event->save();
-          
 
-        if (isset($imageName)) {
-            $destinationPath = public_path() . '/images/event';
-            $image->move($destinationPath, $imageName);
-        }
-
-        return redirect()->action('AdminController@index');
-       
-    }
 }
