@@ -23,9 +23,11 @@
     <div class="latofoto">
         <p>Prezzo:  {{ $event->prezzo }}</p>
         <br></br>
-        <p>Biglietti disponibili: {{ $event->bigliettiDisponibili }} </p>
+        <p>Biglietti totali: {{ $event->bigliettiDisponibili }} </p>
          <br></br>
-        <p>Biglietti Venduti:  {{ $event->biglettiVenduti }}</p>
+        <p>Biglietti disponibili: {{ $event->bigliettiDisponibili-$event->bigliettiVenduti }} </p>
+         <br></br>
+        <p>Biglietti Venduti:  {{ $event->bigliettiVenduti }}</p>
         <br></br>
         <p>Incasso Totale: {{ $event->incassoTotale }} </p>
     </div>

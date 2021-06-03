@@ -105,6 +105,9 @@ Route::get('/user/acquista/{id_event}', 'UserController@Acquista')
 Route::post('/user/acquista/{idevento}', 'UserController@BuyTicket')
         ->name('buytickets');
 
+Route::get('/user/mytickets', 'UserController@MyTickets')
+        ->name('mytickets');
+
 // Rotte per l'autenticazione
 Route::get('login', 'Auth\LoginController@showLoginForm')
         ->name('login');

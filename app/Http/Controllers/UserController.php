@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Eventi;
+use App\Models\Tickets;
 use App\Models\Resources\Ticket;
+use App\Models\Resources\Event;
 use App\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BuyTickets;
@@ -19,6 +21,7 @@ class UserController extends Controller
     public function __construct() {
         $this->middleware('auth');
         $this->_eventModel = new Eventi;
+        $this->_ticketsModel = new Tickets;
     }
 
     public function index() {
@@ -84,10 +87,28 @@ public function update(User $user)
 
         $ticket = new Ticket;
         $ticket->fill($request->validated());
+        
         $ticket->idutente = auth()->user()->id;
         $ticket->idevento = $idevento;
         $ticket->save();
-        return redirect()->action('UserController@index');
+        $event = Event::find($idevento);
+        $event->incassoTotale = $event->incassoTotale +$request->get('prezzo');
+        $event->bigliettiVenduti = $event->incassoVenduti +$request->get('quantita');
+        $event->save();
+        return redirect()->action('UserController@MyTickets');
+    }
+    
+    public function MyTickets() {
+        $tickets=$this->_ticketsModel->getTicketsbyuser(auth()->user()->id);
+        $events=$this->_eventModel->getAllEvents();
+        
+        $array=array();
+        foreach ($events as $event){
+           $array[$event->id] = $event;
+        }
+        return view('mytickets')
+                        ->with('tickets', $tickets)
+                        ->with('events',$array);
     }
     
     public function Acquista2($id_event) {

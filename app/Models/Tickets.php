@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Resources\Tiket;
+use App\Models\Resources\Ticket;
 
 class Tickets {
 
@@ -16,7 +16,7 @@ class Tickets {
     
     public function getTicketsbyuser($id_user) {
        // da rivedere jhjhjhh
-        $tickets = Ticket::where('id',$id_user);
+        $tickets = Ticket::where('idutente',$id_user)->get();
         return $tickets;
     }
     

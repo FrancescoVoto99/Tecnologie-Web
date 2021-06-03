@@ -34,6 +34,13 @@ class Eventi {
         return $events;
     }
     
+    public function getAllEvents() {
+       // da rivedere jhjhjhh
+        $events = Event::where('id','!=',0)->get();
+        
+        return $events;
+    }
+    
     public function getSocieties() {
        // da rivedere jhjhjhh
         $societies = Event::pluck('societa','admin');
