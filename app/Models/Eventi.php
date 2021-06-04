@@ -45,14 +45,9 @@ class Eventi {
        // da rivedere jhjhjhh
         
         $societies =Event::pluck('societa','admin')->toArray();
-        $societies[null] ='<--Seleziona-->';
-        $societies= array_reverse($societies);
         
+        $societies=array(null=>"<--Seleziona-->") + $societies;
         
-        //$societies = $societies[];
-         
-        
-        //array_unshift($societies,'<--Seleziona-->');
         return $societies;
     }
     

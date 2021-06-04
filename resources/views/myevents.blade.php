@@ -27,6 +27,8 @@
          <br></br>
         <p>Biglietti disponibili: {{ $event->bigliettiDisponibili-$event->bigliettiVenduti }} </p>
          <br></br>
+         <p>Percentuale Biglietti Venduti: {{ round(($event->bigliettiVenduti/$event->bigliettiDisponibili)*100,2) }} %</p>
+         <br></br>
         <p>Biglietti Venduti:  {{ $event->bigliettiVenduti }}</p>
         <br></br>
         <p>Incasso Totale: {{ $event->incassoTotale }} </p>
