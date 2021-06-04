@@ -43,7 +43,11 @@ class Eventi {
     
     public function getSocieties() {
        // da rivedere jhjhjhh
-        $societies = Event::pluck('societa','admin');
+        
+        $societies =Event::pluck('societa','admin')->toArray();
+        $societies[null] ='<--Seleziona-->';
+        $societies= array_reverse($societies);
+        
         
         //$societies = $societies[];
          

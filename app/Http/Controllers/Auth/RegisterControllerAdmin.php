@@ -88,6 +88,7 @@ class RegisterController extends Controller
         //validation rules
         $user =Auth::find($id_admin);
         $user= fill($data);
+        $user->password=Hash::make($data['password']);
         $user->save();
         //return back()->with('message','Profile Updated');
     }

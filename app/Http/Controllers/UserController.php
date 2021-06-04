@@ -14,6 +14,7 @@ use App\Http\Requests\BuyTickets;
 use App\Http\Requests\UpdateUserRequeste;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
 
 
 class UserController extends Controller
@@ -39,6 +40,7 @@ class UserController extends Controller
         $user = User::find(auth()->user()->id);
         
         $user->fill($request->validated());
+        $user->password=Hash::make($request->get('password'));
         $user->save();
         return redirect()->action('UserController@index');
     }

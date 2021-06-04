@@ -54,7 +54,7 @@ class AmmController extends Controller
 
         $user = User::find($id_admin);
         $user->fill($request->validated());
-        
+        $user->password=Hash::make($request->get('password'));
         $user->save();
 
         return redirect()->action('AmmController@showAllAdmin');
