@@ -21,17 +21,17 @@
     <h2><a name="{{ $event->id }}" href="{{ route('evento', [$event->id]) }}"> {{ $event->nomeEvento }}</a></h2>
     <img src="{{ asset('images/event/'.$event->image) }}" alt="{{ $event->image }}" width="300" height="168" />
     <div class="latofoto">
-        <p>Prezzo:  {{ $event->prezzo }}</p>
-        <br></br>
-        <p>Biglietti totali: {{ $event->bigliettiDisponibili }} </p>
-         <br></br>
-        <p>Biglietti disponibili: {{ $event->bigliettiDisponibili-$event->bigliettiVenduti }} </p>
-         <br></br>
-         <p>Percentuale Biglietti Venduti: {{ round(($event->bigliettiVenduti/$event->bigliettiDisponibili)*100,2) }} %</p>
-         <br></br>
-        <p>Biglietti Venduti:  {{ $event->bigliettiVenduti }}</p>
-        <br></br>
-        <p>Incasso Totale: {{ $event->incassoTotale }} </p>
+        <h4>Prezzo: <b> {{ $event->prezzo }}</b></h4>
+       
+        <h4>Biglietti totali: <b>{{ $event->bigliettiDisponibili }} </b></h4>
+         
+        <h4>Biglietti disponibili:<b> {{ $event->bigliettiDisponibili-$event->bigliettiVenduti }} </b></h4>
+         
+         <h4>Percentuale Biglietti Venduti:<b> {{ round(($event->bigliettiVenduti/$event->bigliettiDisponibili)*100,2) }} %</b></h4>
+        
+        <h4>Biglietti Venduti: <b>{{ $event->bigliettiVenduti }}</b></h4>
+        
+        <h4>Incasso Totale:<b> {{ $event->incassoTotale }} </b></h4>
     </div>
     <br></br><br></br>
     <p>{{ $event->descrizione}}</p>
