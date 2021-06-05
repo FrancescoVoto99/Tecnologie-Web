@@ -93,7 +93,7 @@ class AdminController extends Controller
             $image->move($destinationPath, $imageName);
         }
 
-        return redirect()->action('AdminController@index');
+        return response()->json(['redirect' => route('myevents')]);
     
 }
     public function deletEvent($id_event){

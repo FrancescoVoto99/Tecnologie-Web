@@ -49,9 +49,9 @@
 
         <p id="console">Numero di biglietti da acquistare:<input name="quantita" id="someid" value="1" min="1" max="{{ $event->bigliettiDisponibili-$event->bigliettiVenduti }}" type="number" onkeypress="return isNumberKey(evt)"></p>
 
-        <p><input type="radio" name="linguaggio"  value="carta"> Carta di credito</p>
-        <p><input type="radio" name="linguaggio" value="html">Paypal</p>
-        <p><input type="radio" name="linguaggio" value="html"/> Conto corrente</p>
+        <p><input type="radio" name="linguaggio"  value="carta" required> Carta di credito</p>
+        <p><input type="radio" name="linguaggio" value="html" required>Paypal</p>
+        <p><input type="radio" name="linguaggio" value="html" required /> Conto corrente</p>
 
 
         <br><br>

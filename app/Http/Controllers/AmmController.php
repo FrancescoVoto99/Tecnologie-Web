@@ -40,8 +40,8 @@ class AmmController extends Controller
         $user->role = 'admin';
         
         $user->save();
-
-        return redirect()->action('AmmController@showAllAdmin');
+        return response()->json(['redirect' => route('alladmin')]);
+        
     }
     
     public function editAdmin($id_admin) {
