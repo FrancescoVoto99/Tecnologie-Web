@@ -123,7 +123,7 @@ $(function () {
             </div>
             <br>
             <div class="post_box">                
-                {{ Form::submit('Modifica Evento', ['class' => 'form-btn1']) }}
+                {{ Form::submit('Modifica Evento', ['class' => 'butcton']) }}
             </div>
             {{ Form::close() }}
         </div>

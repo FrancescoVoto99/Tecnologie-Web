@@ -19,7 +19,7 @@
             @can('isAmm')
             
             <form  action="{{route('newfaq')}}"> 
-                <center><input  type="submit" value="Inserisci FAQ"></center>
+                <center><input class="butcton" type="submit" value="Inserisci FAQ"></center>
     </form>
             
     <br>
@@ -34,11 +34,11 @@
             @can('isAmm')
             
             <form action="{{route('deletefaq', [$faq->id] )}}"> 
-        <center><input type="submit" value="Elimina"> 
+        <center><input class="butcton" type="submit" value="Elimina"> 
     </form>
     <br>
     <form action="{{route('editfaq', [$faq->id] )}}"> 
-        <input type="submit" value="Modifica"></center>
+        <input class="butcton" type="submit" value="Modifica"></center>
                 </fieldset>
     </form>
         

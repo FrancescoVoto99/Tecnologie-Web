@@ -38,7 +38,7 @@
             
             
             <div class="post_box">                
-                {{ Form::submit('Accedi', ['class' => 'form-btn1']) }}
+                {{ Form::submit('Accedi', ['class' => 'butcton']) }}
             </div>
             
             <div  class="post_box">

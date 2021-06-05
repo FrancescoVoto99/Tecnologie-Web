@@ -36,11 +36,11 @@
     <br></br><br></br>
     <p>{{ $event->descrizione}}</p>
      <center><form action="{{route('deletevent', [$event->id] )}}"> 
-             <input type="submit" value="Elimina">
+             <input class='butcton'  type="submit" value="Elimina">
     </form>
          <br>
     <form action="{{route('editevent', [$event->id] )}}"> 
-        <input type="submit" value="Modifica evento">
+        <input class='butcton' type="submit" value="Modifica evento">
     </form></center> 
     <div class="cleaner h20"></div>
     <br class="cleaner" />

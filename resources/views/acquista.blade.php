@@ -72,7 +72,7 @@
      
 
                                 
-                {{ Form::submit('Acquista', ['class' => 'input']) }}
+                {{ Form::submit('Acquista', ['class' => 'butcton']) }}
           
             {{ Form::close() }}
               

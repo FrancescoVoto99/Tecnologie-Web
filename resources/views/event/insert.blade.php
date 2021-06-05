@@ -85,13 +85,13 @@ $(function () {
             <div  class="post_box">
                 {{ Form::label(
 'descrizione', 'Descrizione', ['class' => 'label-input']) }}
-                {{ Form::textarea('descrizione', '', ['class' => 'input', 'id' => 'descrizione', 'rows' => 2]) }}
+                {{ Form::textarea('descrizione', '', ['class' => 'input', 'id' => 'descrizione', 'rows' => 4]) }}
                 
             </div>
               <br>
             <div  class="post_box">
                 {{ Form::label('luogo', 'Inserisci la tag html del luogo dell evento', ['class' => 'label-input']) }}
-                {{ Form::textarea('luogo', '', ['class' => 'input', 'id' => 'luogo', 'rows' => 2]) }}
+                {{ Form::textarea('luogo', '', ['class' => 'input', 'id' => 'luogo', 'rows' => 4]) }}
                 
               </div>
               <br>
@@ -121,7 +121,7 @@ $(function () {
                    </div>
             <br>
             <div class="post_box">                
-                {{ Form::submit('Aggiungi Evento', ['class' => 'form-btn1']) }}
+                {{ Form::submit('Aggiungi Evento', ['class' => 'butcton']) }}
             </div>
             {{ Form::close() }}
         </div>

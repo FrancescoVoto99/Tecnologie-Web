@@ -146,6 +146,26 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
     
 }
 
+.butcton {
+  background-color: white; /* Green */
+  border: 2px solid #0264a9;
+  color: black; 
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+.butcton:hover {
+  background-color: #0264a9;
+  color: white;
+}
+
 
 
 #tooplate_main {
@@ -227,6 +247,7 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 .float_l { float: left }
 
 .float_r { float: right }
+
 
 
 

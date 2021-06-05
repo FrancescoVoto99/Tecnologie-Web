@@ -30,7 +30,7 @@
     </form>
     
      <form action="{{route('editadmin', [$user->id] )}}"> 
-        <input type="submit" value="Modifica" class="butcton"> 
+         <input type="submit" value="Modifica" class="butcton" > 
      </form></center>
     </fieldset>
             
