@@ -3,6 +3,10 @@
 namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Contracts\Validation\Validator;
+use Symfony\Component\HttpFoundation\Response;
+
 class InsertEventRequeste extends FormRequest
 {
     /**
@@ -34,9 +38,14 @@ class InsertEventRequeste extends FormRequest
             'luogo' => 'required|max:2500',
             'regione' => 'required',
             'raggiungere'=>'required',
-            'image' => 'image|max:1024',
+            'image' => 'file|mimes:jpeg,png|max:1024',
             'admin' => 'required',
             'societa'=>''
         ];
+    }
+    
+     protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY));
     }
 }

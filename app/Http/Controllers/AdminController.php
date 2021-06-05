@@ -71,8 +71,8 @@ class AdminController extends Controller
             $destinationPath = public_path() . '/images/event';
             $image->move($destinationPath, $imageName);
         };
-
-        return redirect()->action('AdminController@index');
+        return response()->json(['redirect' => route('myevents')]);
+        
     }
 
     public function storeeditEvent(InsertEventRequeste $request) {

@@ -1,12 +1,12 @@
 @extends('layouts.public')
 
 @section('title','Home')
+@section('scripts')
 
-@section('content')
+@parent
 
-
-<div id="tooplate_content">
-    <script type="text/javascript">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
         $(function () {
             $('#someid')
                     .on('click', function (event) {
@@ -19,6 +19,14 @@
             $('#prezzo').val(text);
         }
     </script>
+
+@endsection
+
+@section('content')
+
+
+<div id="tooplate_content">
+    
  {{ Form::open(array('route' => ['buytickets','idevento'=>$event->id],'name' => 'miaform')) }}
     
         <link rel="stylesheet" type="text/css" href="{{asset('css/bottoni.css')}}" />
