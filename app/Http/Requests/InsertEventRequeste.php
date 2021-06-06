@@ -39,8 +39,7 @@ class InsertEventRequeste extends FormRequest
             'regione' => 'required',
             'raggiungere'=>'required',
             'image' => 'file|mimes:jpeg,png|max:1024',
-            'admin' => 'required',
-            'societa'=>''
+            
         ];
     }
     

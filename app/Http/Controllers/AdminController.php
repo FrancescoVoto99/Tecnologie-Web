@@ -64,12 +64,13 @@ class AdminController extends Controller
         
         $event->fill($request->validated());
         $event->image = $imageName;
-        
+        $event->societa=auth()->user()->societa;
+        $event->admin=auth()->user()->id;
         $event->save();
 
         if ($imageName!="default.jpg") {
-            $destinationPath = public_path() . '/images/event';
-            $image->move($destinationPath, $imageName);
+            //$destinationPath = public_path() . '/images/event';
+            //$image->move($destinationPath, $imageName);
         };
         return response()->json(['redirect' => route('myevents')]);
         

@@ -10,7 +10,7 @@
                     
                <img style="float: left" src="../images/event/{{ $event->image }}" alt="{{ $event->image }}" width="300" height="168" />
               <div class="latofoto1">  
-               <p>Data:{{ $event->dataOra }}</p>
+               <p>Data: {{date("d-m-Y H:i:s", strtotime($event->dataOra))}}</p>
                    <br></br>
                    
               <div class="prezzo">

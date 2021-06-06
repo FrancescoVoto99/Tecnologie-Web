@@ -60,6 +60,10 @@ $(function () {
                 
                
             </div>
+            <div  class="post_box">
+            {{ Form::label('dataOra', 'Data', ['class' => 'label-input']) }}
+            <input id="dataOra" class="input" type="datetime-local" name="dataOra" value="{{date("Y-m-d\TH:i:s", strtotime($event->dataOra))}}">
+            </div>
             <br>
             {{ Form::label('dataOra', 'Data', ['class' => 'label-input']) }}
             {{ Form::date('dataOra', \Carbon\Carbon::parse($event->dataOra),['class' => 'input', 'id' => 'dataOra']) }}

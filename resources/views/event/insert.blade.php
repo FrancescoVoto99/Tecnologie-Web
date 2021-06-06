@@ -112,13 +112,9 @@ $(function () {
                 {{ Form::textarea('raggiungere', 'In macchina:  In treno: In aereo:', ['class' => 'input','id' => 'raggiungere']) }}
                
             </div>
-                   <div style="display:none;">
-                       {{ Form::text('admin', Auth::user()->id, ['class' => 'input','id' => 'admin']) }}
-                   </div>
+                   
             </div>
-            <div style="display:none;">
-                       {{ Form::text('societa', Auth::user()->societa, ['class' => 'input','id' => 'societa']) }}
-                   </div>
+            
             <br>
             <div class="post_box">                
                 {{ Form::submit('Aggiungi Evento', ['class' => 'butcton']) }}

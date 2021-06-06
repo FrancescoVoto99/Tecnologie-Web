@@ -61,6 +61,8 @@ class UserController extends Controller
         
         $ticket->idutente = auth()->user()->id;
         $ticket->idevento = $idevento;
+        date_default_timezone_set('Europe/Rome');
+        $ticket->dataOra =date('Y/m/d H:i:s');
         $ticket->save();
         $event = Event::find($idevento);
         $event->incassoTotale = $event->incassoTotale +$request->get('prezzo');
@@ -77,7 +79,7 @@ class UserController extends Controller
         foreach ($events as $event){
            $array[$event->id] = $event;
         }
-        return view('mytickets')
+        return view('myTickets')
                         ->with('tickets', $tickets)
                         ->with('events',$array);
     }
