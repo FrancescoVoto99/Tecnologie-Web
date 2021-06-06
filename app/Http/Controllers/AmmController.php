@@ -9,7 +9,9 @@ use App\Http\Requests\InsertFAQRequeste;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Models\FAQs;
+use App\Models\Eventi;
 use App\Models\Resources\FAQ;
+
 
 class AmmController extends Controller
 { 
@@ -18,6 +20,7 @@ class AmmController extends Controller
     public function __construct() {
         $this->middleware('can:isAmm');
         $this->_FAQModel = new FAQs;
+        $this->_eventModel = new Eventi;
         
         
     }
@@ -71,10 +74,22 @@ class AmmController extends Controller
     public function showAllAdmin() {
        $users=User::where('role','admin')->get();
        
+       
+       foreach ($users as $user){
+       $events = $this->_eventModel->getStatistic($user->id);
+       
+        foreach ($events as $event) {
+                $user['bigliettiVenduti']+=$event->bigliettiVenduti;
+                $user['incassoTotale']+=$event->incassoTotale;
+        }
+        }
+       
         
         return view('allAdmin')
                        ->with('users', $users);
     }
+    
+
     
     public function deleteUser($id_user){
        

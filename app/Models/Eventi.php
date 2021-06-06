@@ -98,6 +98,12 @@ class Eventi {
         return $events->paginate(2);
     }
     
+    public function getStatistic($id_admin) {
+       // da rivedere jhjhjhh
+        $events = Event::select('bigliettiVenduti', 'incassoTotale')->where('admin', $id_admin)->get();
+        return $events;
+    }
+    
     public function deletEvent ($id_event) {
        $event = Event::find($id_event);
         $event->delete();

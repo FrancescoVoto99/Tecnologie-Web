@@ -17,21 +17,31 @@
     @isset($users)
     <h1 style="text-align: center"><b>ORGANIZZATORI</b></h1> 
     @foreach ($users as $user)
-    <fieldset >
+    <fieldset style="border-radius: 15px; background-color: lightblue; border-color: #0264a9 " >
     <center><h2><b>{{ $user->name }} {{ $user->surname }}</b></h2></center>
-    <h3>Nome Società Organizzatrice: <b>{{ $user->societa}}</b></h3>
+    <h2>Nome Società Organizzatrice: <b>{{ $user->societa}}</b></h2>
     
-    <h4>Username:{{ $user->username}}</h4>
+    <h3>Incasso Totale: <b>{{ $user->incassoTotale}}</b></h4>
+    
+    <h3>Biglietti Totali Venduti: <b>{{ $user->bigliettiVenduti}}</b></h4>
+    
+    <h4>Username: <b>{{ $user->username}}</b></h4>
             
-    <h4>Email:{{ $user->email}}</h4>
-            
-    <center><form action="{{route('deleteuser', [$user->id] )}}"> 
+    <h4>Email: <b>{{ $user->email}}</b></h4>
+    
+    
+    <div style="float: left">
+        <form action="{{route('deleteuser', [$user->id] )}}"> 
         <input type="submit" value="Elimina" class="butcton"> 
     </form>
+    </div>
     
-     <form action="{{route('editadmin', [$user->id] )}}"> 
+    <div>
+        <form action="{{route('editadmin', [$user->id] )}}"> 
          <input type="submit" value="Modifica" class="butcton" > 
-     </form></center>
+     </form>
+    </div>
+    
     </fieldset>
             
     <br></br>
