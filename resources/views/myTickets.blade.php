@@ -33,7 +33,7 @@
                       <br>          
                    <h4>Costo Singolo Biglietto: <b>{{ round($ticket->prezzo/$ticket->quantita,2) }}</b> € </h4>
                      <br> 
-                    <h4>Acquistato il: <b>{{ $ticket->dataOra }}</b></h4>
+                    <h4>Acquistato il: <b> {{date("d/m/Y H:i:s", strtotime($ticket->dataOra))}}</b></h4>
                          
                      
                     <br>
