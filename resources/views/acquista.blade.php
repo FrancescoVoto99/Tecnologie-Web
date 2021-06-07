@@ -42,37 +42,30 @@
         <h2>Acquisto del biglietto: {{ $event->nomeEvento }}</h2>
 
 
-        <p>Data/Ora:{{ $event->dataOra }}</p>
+        <h3>Data:<b>{{date("d/m/Y", strtotime($event->dataOra))}}</b>   Ora:<b>{{date("H:i:s", strtotime($event->dataOra))}}</b></h3>
         <br>
-        <p >Prezzo biglietto :<b id="tiket">{{ number_format($prezzo, 2) }}</b>€</p>
+        <h3>Prezzo biglietto :<b id="tiket">{{ number_format($prezzo, 2) }}</b>€</h3>
         <br>
 
-        <p id="console">Numero di biglietti da acquistare:<input name="quantita" id="someid" value="1" min="1" max="{{ $event->bigliettiDisponibili-$event->bigliettiVenduti }}" type="number" onkeypress="return isNumberKey(evt)"></p>
-
-        <p><input type="radio" name="linguaggio"  value="carta" required> Carta di credito</p>
-        <p><input type="radio" name="linguaggio" value="html" required>Paypal</p>
-        <p><input type="radio" name="linguaggio" value="html" required /> Conto corrente</p>
+        <h3 id="console">Numero di biglietti da acquistare:<input class="box12" name="quantita" id="someid" value="1" min="1" max="{{ $event->bigliettiDisponibili-$event->bigliettiVenduti }}" type="number" onkeypress="return isNumberKey(evt)"></h3>
+        <br>
+        <h3><b>Seleziona la modalità di pagamento:</b></h3>
+        <h4><input type="radio" name="linguaggio"  value="carta" required><b>Carta di credito</b> </h4>
+        <h4><input type="radio" name="linguaggio" value="html" required><b>Paypal</b></h4>
+        <h4><input type="radio" name="linguaggio" value="html" required /><b>Conto corrente</b></h4>
 
 
         <br><br>
-        
-        <label><b>Totale:</b><input type="number" name="prezzo" value="{{ number_format($prezzo, 2) }}" id="prezzo" readonly>€</label>
+        <div class="move_botton">
+       {{ Form::submit('Acquista', ['class' => 'butcton']) }}
                     <br><br>
-                    
-                    
-                    
-                 
-           <div  class="post_box" style="display: none">
-               
-               {{ Form::text('idevento',$event->id) }}
-                
-          </div>
-                    
-                    
-     
-
+        </div>
+        <div>
+            <h3><b>Totale:</b><input class="box12" type="number" name="prezzo" value="{{ number_format($prezzo, 2) }}" id="prezzo" readonly>€</h3>
+           
+        </div>
                                 
-                {{ Form::submit('Acquista', ['class' => 'butcton']) }}
+                
           
             {{ Form::close() }}
               
