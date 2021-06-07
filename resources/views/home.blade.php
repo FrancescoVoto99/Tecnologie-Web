@@ -34,7 +34,7 @@
          
          <h2><a name="{{ $event->id}}" href="{{route('evento',[$event->id])}}">{{ $event->nomeEvento}}</a></h2>
    <img src="images/event/{{ $event->image }}" alt="{{ $event->image }}" width="250" height="128" class="image_frame" />
-                <p><em>{{$event->descrizione}} </em></p>
+   <h5><em>Data:<b>{{date("d/m/Y", strtotime($event->dataOra))}}</b>   Ora:<b>{{date("H:i:s", strtotime($event->dataOra))}}</b></em></h5>
     <br>
    
     <div class="cleaner h20"></div>

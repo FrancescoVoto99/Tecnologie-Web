@@ -23,7 +23,7 @@
    <img src="../images/event/{{ $events[$ticket->idevento]->image}}" alt="{{ $events[$ticket->idevento]->image }}" width="300" height="168" />
     <div class="latofoto">
         
-        <h4><b>Data Evento:</b> {{ $events[$ticket->idevento]->dataOra }}</h4>
+        <h4>Data Evento:<b> {{date("d/m/Y H:i:s", strtotime($events[$ticket->idevento]->dataOra))}}</b></h4>
                    <br></br
                    
                   <br>

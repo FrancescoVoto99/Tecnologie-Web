@@ -64,11 +64,11 @@ class AmmController extends Controller
     }
    
     public function showAllUser() {
-       $users=User::where('role','user')->get();
+       $users=User::where('role','user');
        
-        
+     
         return view('allUser')
-                       ->with('users', $users);
+                       ->with('users',$users->paginate(4));
     }
     
     public function showAllAdmin() {

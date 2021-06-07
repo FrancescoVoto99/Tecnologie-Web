@@ -35,8 +35,11 @@
 /*colore del tasto home login e registrati quando ci vai con il mouse*/
 .ddsmoothmenu ul li a.selected, .ddsmoothmenu ul li a:hover { /*CSS class that's dynamically added to the currently active menu items' LI A element*/
 	color: #fff;
-	background: #0264a9
+	
 }
+.ddsmoothmenu a:hover{
+    background-color: #0264a9
+} 
 /*1st sub level menu*/
 .ddsmoothmenu ul li ul{
 	position: absolute;

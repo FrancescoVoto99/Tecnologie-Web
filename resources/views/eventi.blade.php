@@ -87,11 +87,21 @@
     <h2><a name="{{ $event->id }}" href="{{ route('evento', [$event->id]) }}"> {{ $event->nomeEvento }}</a></h2>
     <img src="images/event/{{ $event->image }}" alt="{{ $event->image }}" width="300" height="168" />
     <div class="latofoto">
-         <div class="prezzo">
-                        @include('helpers/EventPrice')
+            
+        
+        <div class="prezzo"  style="float: right">
+           @include('helpers/EventPrice')
                     </div>
+        <div>
+        <h3> Prezzo:</h3>
+        </div>
         <br></br>
-        <h3>Biglietti disponibili:<b>{{ $event->bigliettiDisponibili-$event->bigliettiVenduti }}</b>  </h3>
+        <h3> Data:<b> {{date("d-m-Y H:i:s", strtotime($event->dataOra))}}</b>  </h3>
+       
+         <br></br>
+          <h3>Biglietti disponibili:<b>{{ $event->bigliettiDisponibili-$event->bigliettiVenduti }}</b>  </h3>
+        
+   
     </div>
     <br></br><br></br>
     <p>{{ $event->descrizione}}</p>

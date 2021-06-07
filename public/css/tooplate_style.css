@@ -255,6 +255,13 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 
 .float_r { float: right }
 
+#showuser{
+    border-radius: 15px;
+    border: 12px;
+    background-color: #cdac00; 
+    
+}
+
 
 
 

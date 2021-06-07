@@ -17,7 +17,7 @@
     @isset($users)
     <h1 style="text-align: center"><b>ORGANIZZATORI</b></h1> 
     @foreach ($users as $user)
-    <fieldset style="border-radius: 15px; background-color: lightblue; border-color: #0264a9 " >
+    <fieldset id="showuser" >
     <center><h2><b>{{ $user->name }} {{ $user->surname }}</b></h2></center>
     <h2>Nome Società Organizzatrice: <b>{{ $user->societa}}</b></h2>
     

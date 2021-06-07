@@ -19,7 +19,7 @@
     
     @foreach ($users as $user)
     
-    <fieldset >
+    <fieldset id="showuser" >
         <br>
         <center><h2><b>{{ $user->name }} {{ $user->surname }}</b></h2></center>
     
@@ -38,7 +38,7 @@
 
     @endforeach
     <!--Paginazione-->
-    
+    @include('pagination.paginator', ['paginator' => $users])
     @endisset()
 </div>
 
