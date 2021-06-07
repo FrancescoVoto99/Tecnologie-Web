@@ -10,7 +10,7 @@ class Eventi {
 
   
     // Estrae i prodotti della categoria/e $catId (tutti o solo quelli in sconto), eventualmente ordinati
-    public function getEvents($order = null, $discounted = null) {
+    public function getEvents($order = null, $discounted = null,$paginate=5) {
        // da rivedere jhjhjhh
         $prods = Event::where('id','!=',0);
         if ($discounted != null) {
@@ -19,7 +19,7 @@ class Eventi {
         if (!is_null($order)) {
             $prods = $prods->orderBy('dataOra', $order);
         }
-        return $prods->paginate(2);
+        return $prods->paginate($paginate);
     }
     public function getEventsOrder($order) {
        // da rivedere jhjhjhh
@@ -77,12 +77,15 @@ class Eventi {
                 $societa=array($filter['societa']);
                 $events = $events->whereIn('admin', $societa);
             }
-             $new_date = date('Y-m-d', strtotime($filter['dataOra']));
-           
-                $events = $events->where('dataOra','>',$new_date);
+             //$new_date = date('Y-m-d', strtotime($filter['dataOra']));
+            if($filter['dataOra']!=null){
+                $events = $events->whereMonth('dataOra', '=', date("m",strtotime($filter['dataOra'])));
+                $events = $events->whereYear('dataOra', '=', date("Y",strtotime($filter['dataOra'])));
+            }
+                //$events = $events->where('dataOra','>',$new_date);
         }
        
-        return $events;
+        return $events->get();
         
     }
     

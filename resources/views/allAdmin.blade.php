@@ -30,7 +30,7 @@
     <h4>Email: <b>{{ $user->email}}</b></h4>
     
     
-    <div style="float: left">
+    <div id="move_botton">
         <form action="{{route('deleteuser', [$user->id] )}}"> 
         <input type="submit" value="Elimina" class="butcton"> 
     </form>

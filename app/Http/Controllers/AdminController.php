@@ -69,8 +69,8 @@ class AdminController extends Controller
         $event->save();
 
         if ($imageName!="default.jpg") {
-            //$destinationPath = public_path() . '/images/event';
-            //$image->move($destinationPath, $imageName);
+            $destinationPath = public_path() . '/images/event';
+            $image->move($destinationPath, $imageName);
         };
         return response()->json(['redirect' => route('myevents')]);
         

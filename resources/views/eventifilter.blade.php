@@ -15,7 +15,7 @@
         {{ Form::open(array('route' => 'eventifilter', 'id' => 'eventfilter')) }}
 
         <fieldset title="Cerca nelle descrizioni ">
-            <legend>Cerca nelle descrizioni</legend>
+            <legend class="cerca">Cerca nelle descrizioni</legend>
             {{ Form::text('cerca', '', [ 'id' => 'search-in']) }}
             <!--       <button style="background: url(images/lente4.png)" alt="Cerca" ></button>  --> 
 
@@ -41,13 +41,9 @@
         <h3>DATA</h3>      
 
         <fieldset title="Scegli la data dell'evento">
-            <legend>DA: </legend>
-            {{Form::date('dataOra', \Carbon\Carbon::now())}}<br></br>
-            <ul class="errors">
-                @foreach ($errors->get('dataOra') as $message)
-                <li>{{ $message }}</li>
-                @endforeach
-            </ul>
+            <legend class="cerca"> Seleziona data (yyyy-mm): </legend>
+            {{Form::month('dataOra')}}<br></br>
+            
         </fieldset>
         <br></br>
 

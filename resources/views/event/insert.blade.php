@@ -33,6 +33,7 @@ $(function () {
     
             </div>
         <br>
+       
             {{ Form::open(array('route' => 'newevent.store', 'id' => 'addevent', 'files' => true, 'class' => 'contact-form')) }}
            <div  class="post_box">
                 {{ Form::label('nomeEvento', 'Nome Evento', ['class' => 'label-input']) }}
@@ -76,7 +77,9 @@ $(function () {
                 {{ Form::text('sconto', '', ['class' => 'input', 'id' => 'sconto']) }}
                
             </div>
-               <div class="post_box2">
+            
+           
+            
             <div  class="post_box">
                 {{ Form::label('insconto', 'In Sconto', ['class' => 'label-input']) }}
                 {{ Form::select('insconto', ['1' => 'Si', '0' => 'No'], 1, ['class' => 'input','id' => 'insconto']) }}
@@ -113,7 +116,7 @@ $(function () {
                
             </div>
                    
-            </div>
+          
             
             <br>
             <div class="post_box">                

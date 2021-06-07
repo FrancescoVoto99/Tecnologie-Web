@@ -12,7 +12,7 @@
                 <a href="https://www.youtube.com/"><img src="images/youtube-32x32.png" title="youtube" alt="youtube" /></a>
             </div>
     <div class="sb_box">
-        <h3>Eventi</h3>  
+        <h3>Prossimi Eventi</h3>  
         @isset($events)
         <ul class="lista_eventi">
             @foreach ($events as $event)

@@ -21,7 +21,27 @@
     <h2><a name="{{ $event->id }}" href="{{ route('evento', [$event->id]) }}"> {{ $event->nomeEvento }}</a></h2>
     <img src="{{ asset('images/event/'.$event->image) }}" alt="{{ $event->image }}" width="300" height="168" />
     <div class="latofoto">
-        <h4>Prezzo: <b> {{ $event->prezzo }}</b></h4>
+        
+    @php
+    $prezzo=$event->prezzo;
+    $prezzo=$event->insconto?round(($prezzo-($prezzo*$event->sconto)/100), 2):$prezzo;
+@endphp
+
+
+
+<div style="float: right">
+         @if ($event->insconto)
+        <h5> Valore <del>{{ number_format($event->prezzo, 2, ',', '.') }} €</del><br>
+        Sconto {{ $event->sconto }}%</h5>
+         
+        @endif
+       
+        </div>
+   
+        <div>
+    <h4>Prezzo: <b> {{ $prezzo }}</b></h4>
+       
+        </div>
        
         <h4>Biglietti totali: <b>{{ $event->bigliettiDisponibili }} </b></h4>
          
@@ -35,13 +55,20 @@
     </div>
     <br></br><br></br>
     <p>{{ $event->descrizione}}</p>
-     <center><form action="{{route('deletevent', [$event->id] )}}"> 
-             <input class='butcton'  type="submit" value="Elimina">
-    </form>
-         <br>
+    
+       <div id="move_botton">
     <form action="{{route('editevent', [$event->id] )}}"> 
         <input class='butcton' type="submit" value="Modifica evento">
-    </form></center> 
+    </form>
+       </div>
+    <div>
+    
+         <form action="{{route('deletevent', [$event->id] )}}"> 
+             <input class='butcton'  type="submit" value="Elimina">
+    </form>
+        </div>
+   
+        
     <div class="cleaner h20"></div>
     <br class="cleaner" />
 
