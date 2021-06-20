@@ -9,7 +9,7 @@
 <script type="text/javascript">
         $(function () {
             $('#someid')
-                    .on('click', function (event) {
+                    .on('change', function (event) {
                         var prezzo = $('#tiket').text() * $(this).val();
                 
                         putprice(prezzo.toFixed(2));

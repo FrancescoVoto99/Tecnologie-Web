@@ -21,18 +21,6 @@ class Eventi {
         }
         return $prods->paginate($paginate);
     }
-    public function getEventsOrder($order) {
-       // da rivedere jhjhjhh
-        $events = Event::where('id','!=',0);
-        
-        
-            $events = $events->orderBy('dataOra', $order)->get();
-            $events=array($events);
-            array_slice($events, 0, 2);
-                    
-        
-        return $events;
-    }
     
     public function getAllEvents() {
        // da rivedere jhjhjhh

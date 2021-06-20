@@ -21,7 +21,7 @@
     <center><h2><b>{{ $user->name }} {{ $user->surname }}</b></h2></center>
     <h2>Nome Società Organizzatrice: <b>{{ $user->societa}}</b></h2>
     
-    <h3>Incasso Totale: <b>{{ $user->incassoTotale}}</b></h4>
+    <h3>Incasso Totale: <b>{{ $user->incassoTotale}} €</b></h4>
     
     <h3>Biglietti Totali Venduti: <b>{{ $user->bigliettiVenduti}}</b></h4>
     

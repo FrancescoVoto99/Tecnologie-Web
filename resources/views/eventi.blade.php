@@ -85,7 +85,7 @@
 
     @foreach ($events as $event)
     <h2><a name="{{ $event->id }}" href="{{ route('evento', [$event->id]) }}"> {{ $event->nomeEvento }}</a></h2>
-    <img src="images/event/{{ $event->image }}" alt="{{ $event->image }}" width="300" height="168" />
+    <a href="{{ route('evento', [$event->id]) }}"><img src="images/event/{{ $event->image }}" alt="{{ $event->image }}" width="300" height="168" /></a>
     <div class="latofoto">
             
         
@@ -96,7 +96,7 @@
         <h3> Prezzo:</h3>
         </div>
         <br></br>
-        <h3> Data:<b> {{date("d-m-Y H:i:s", strtotime($event->dataOra))}}</b>  </h3>
+        <h3> Data:<b> {{date("d-m-Y H:i", strtotime($event->dataOra))}}</b>  </h3>
        
          <br></br>
           <h3>Biglietti disponibili:<b>{{ $event->bigliettiDisponibili-$event->bigliettiVenduti }}</b>  </h3>

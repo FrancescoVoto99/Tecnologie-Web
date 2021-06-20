@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Eventi;
 use App\Models\Tickets;
 use App\Models\Resources\Ticket;
+use App\Models\Resources\Partecipero;
+use App\Models\Parteciperos;
 use App\Models\Resources\Event;
 use App\User;
 use App\Http\Controllers\Controller;
@@ -24,6 +26,7 @@ class UserController extends Controller
         $this->middleware('auth');
         $this->_eventModel = new Eventi;
         $this->_ticketsModel = new Tickets;
+        $this->_parteciperoModel = new Parteciperos;
     }
 
     public function index() {
@@ -69,6 +72,19 @@ class UserController extends Controller
         $event->bigliettiVenduti = $event->bigliettiVenduti +$request->get('quantita');
         $event->save();
         return redirect()->action('UserController@MyTickets');
+    }
+    public function Partecipero ($idevento) {
+        $partecipero = new Partecipero;
+        $partecipero->idevento = $idevento;
+        $partecipero->iduser=auth()->user()->id;
+        $partecipero->save();
+        return redirect()->action('PublicController@showEvento',$idevento);
+    }
+    
+    public function NonPartecipero ($id,$idevento) {
+        $this->_parteciperoModel->deletePartecipero($id);
+        
+        return redirect()->action('PublicController@showEvento',$idevento);
     }
     
     public function MyTickets() {

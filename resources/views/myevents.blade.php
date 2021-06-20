@@ -19,9 +19,9 @@
 
     @foreach ($events as $event)
     <h2><a name="{{ $event->id }}" href="{{ route('evento', [$event->id]) }}"> {{ $event->nomeEvento }}</a></h2>
-    <img src="{{ asset('images/event/'.$event->image) }}" alt="{{ $event->image }}" width="300" height="168" />
+    <a  href="{{ route('evento', [$event->id]) }}"> <img src="{{ asset('images/event/'.$event->image) }}" alt="{{ $event->image }}" width="300" height="168" /></a>
     <div class="latofoto">
-        
+       
     @php
     $prezzo=$event->prezzo;
     $prezzo=$event->insconto?round(($prezzo-($prezzo*$event->sconto)/100), 2):$prezzo;
@@ -39,7 +39,7 @@
         </div>
    
         <div>
-    <h4>Prezzo: <b> {{ $prezzo }}</b></h4>
+    <h4>Prezzo: <b> {{ $prezzo }}</b> €</h4>
        
         </div>
        
@@ -52,6 +52,7 @@
         <h4>Biglietti Venduti: <b>{{ $event->bigliettiVenduti }}</b></h4>
         
         <h4>Incasso Totale:<b> {{ $event->incassoTotale }} </b></h4>
+        
     </div>
     <br></br><br></br>
     <p>{{ $event->descrizione}}</p>

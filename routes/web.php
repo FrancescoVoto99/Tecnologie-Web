@@ -15,7 +15,7 @@ Route::get('/evento/{id_event}', 'PublicController@showEvento')
         ->name('evento');
 
 Route::get('/', 'PublicController@showEventi')
-        ->name('eventi');
+        ->name('home');
 
 Route::get('/eventifilter', 'PublicController@showEventiFilter')
         ->name('eventifilter');
@@ -104,6 +104,12 @@ Route::get('/user/acquista/{id_event}', 'UserController@Acquista')
 
 Route::post('/user/acquista/{idevento}', 'UserController@BuyTicket')
         ->name('buytickets');
+
+Route::get('/user/partecipero/{idevento}', 'UserController@Partecipero')
+        ->name('partecipero');
+
+Route::get('/user/nonpartecipero/{id}/{idevento}', 'UserController@NonPartecipero')
+        ->name('nonpartecipero');
 
 Route::get('/user/mytickets', 'UserController@MyTickets')
         ->name('mytickets');

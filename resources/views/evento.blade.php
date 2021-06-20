@@ -5,9 +5,19 @@
 @section('content')
 <div id="tooplate_content">
     @isset($event)
-
-    <h2>{{ $event->nomeEvento }}</h2>
-
+    <div style="float: right">
+        @can('isUser')
+        @if(isset($event->idparte))
+        <h3><a style="color: red" href="{{ route('nonpartecipero', [$event->idparte,$event->id]) }}">Parteciperò<img  src="../images/cuorerosso.png" style="right"  width="25" height="25"></a></h3>
+        @else
+        <h3><a  href="{{ route('partecipero', [$event->id]) }}">Parteciperò<img  src="../images/cuorebianco.png" style=""  width="25" height="25"></a></h3>
+        @endif
+        @endcan('isUser')
+      
+    </div>
+    <div>
+        <h2>{{ $event->nomeEvento }}</h2> 
+     </div>
     <img style="float: left" src="../images/event/{{ $event->image }}" alt="{{ $event->image }}" width="300" height="168" />
     <div class="latofoto1"> 
         
@@ -15,10 +25,10 @@
             @include('helpers/EventPrice')
         </div>
         <div>
-            <h3> Prezzo:</h3>
+            <h2> <b>Prezzo:</b></h2>
         </div>
         <br></br>
-        <h4> Data:<b> {{date("d-m-Y H:i:s", strtotime($event->dataOra))}}</b>  </h4>
+        <h4> Data:<b> {{date("d-m-Y H:i", strtotime($event->dataOra))}}</b>  </h4>
 
         <h4>Biglietti disponibili:<b>{{ $event->bigliettiDisponibili-$event->bigliettiVenduti }}</b>  </h3>
 
@@ -29,8 +39,11 @@
         @endcan('isUser')
         <br>
         <br>
+        
+        
     </div>
-
+    <h3> <b>Partecipanti: {{ $partecipero }} </b></h3>
+    <br>
     <div class="sottofoto">
 
 
@@ -42,15 +55,15 @@
 
 
     <div style="float: left">
-        <iframe src="{{ $event->luogo}}" width=250 height=150></iframe>
+        <iframe id="map" src="{{ $event->luogo}}" width=250 height=170></iframe>
     </div>
-
-    <p class="latofoto1"> come raggiungerci
+ <div class="latofoto1">
+    <p > come raggiungerci
         <br></br> 
 
 
-    <p>{{ $event->raggiungere}}</p>
-
+    <p style="font-size: 14px">{{ $event->raggiungere}}</p>
+ </div>
     <div class="cleaner h20"></div>
 
     <br class="cleaner" />

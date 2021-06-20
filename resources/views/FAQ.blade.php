@@ -27,22 +27,24 @@
     @endcan
             @isset($faqs)
             @foreach ($faqs as $faq)
-            <fieldset>
-                <h4 name="{{ $faq->id }}"> {{ $faq->domande }}</h4>
-            <p name="{{ $faq->id }}" > {{ $faq->risposte }}</p>
+            <fieldset id="showuser">
+                <h2 name="{{ $faq->id }}"> {{ $faq->domande }}</h2>
+                <p name="{{ $faq->id }}" > <b>{{ $faq->risposte }}</b></p>
             <br>
             @can('isAmm')
-            
+            <div id="move_botton">
             <form action="{{route('deletefaq', [$faq->id] )}}"> 
-        <center><input class="butcton" type="submit" value="Elimina"> 
+       <input class="butcton" type="submit" value="Elimina"> 
     </form>
-    <br>
+                </div>
+            <div>
     <form action="{{route('editfaq', [$faq->id] )}}"> 
-        <input class="butcton" type="submit" value="Modifica"></center>
-                </fieldset>
-    </form>
+        <input class="butcton" type="submit" value="Modifica">  </form>
+        </div>
+               
         
     @endcan
+     </fieldset>
             <br class="cleaner" />
             
 

@@ -93,7 +93,8 @@ $(function () {
             </div>
               <br>
             <div  class="post_box">
-                {{ Form::label('luogo', 'Inserisci la tag html del luogo dell evento', ['class' => 'label-input']) }}
+                {{ Form::label('luogo', 'Inserisci la tag html del luogo dell evento:', ['class' => 'label-input']) }}
+                <legend> valore in scr="<b>https://www.google...</b>"</legend>
                 {{ Form::textarea('luogo', '', ['class' => 'input', 'id' => 'luogo', 'rows' => 4]) }}
                 
               </div>
@@ -111,7 +112,7 @@ $(function () {
             </div>
               <br>
             <div  class="post_box">
-                {{ Form::label('raggiungere', 'Inserisci la tag html del luogo dell evento', ['class' => 'label-input']) }}
+                {{ Form::label('raggiungere', "Inserisci le indicazioni per raggiungere l'evento:", ['class' => 'label-input']) }}
                 {{ Form::textarea('raggiungere', 'In macchina:  In treno: In aereo:', ['class' => 'input','id' => 'raggiungere']) }}
                
             </div>

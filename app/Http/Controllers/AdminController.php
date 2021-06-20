@@ -80,7 +80,6 @@ class AdminController extends Controller
         $event = Event::find($request->get('id'));
         
         $event->fill($request->validated());
-        
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = $image->getClientOriginalName();

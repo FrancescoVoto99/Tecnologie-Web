@@ -54,6 +54,7 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 .sottofoto { 
         text-align: left;
         margin-left: 20px;
+        padding: 20px;
         color:#000000;
         font-size: 17px;
 }
@@ -147,6 +148,12 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 }
 #move_botton{
     float: left;
+    
+}
+#map{
+    
+    border-color: blue;
+    border-radius: 12px;
     
 }
 

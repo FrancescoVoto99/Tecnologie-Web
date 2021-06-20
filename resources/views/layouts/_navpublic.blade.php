@@ -1,5 +1,5 @@
 <ul>
-    <li><a href="{{ route('eventi')}}" class="selected" title="lista eventi">Home </a></li>
+    <li><a href="{{ route('home')}}" class="selected" title="lista eventi">Home </a></li>
     
     <li><a href="{{ route('eventifilter')}}" title="ricerca gli eventi">Catalogo</a></li>
     
