@@ -110,7 +110,7 @@ class AmmController extends Controller
 
     public function storeFAQ(InsertFAQRequeste $request) {
         
-        $faq = new FAQs;
+        $faq = new FAQ;
         
         $faq->fill($request->validated());
         $faq->save();

@@ -58,8 +58,8 @@
         <iframe id="map" src="{{ $event->luogo}}" width=250 height=170></iframe>
     </div>
  <div class="latofoto1">
-    <p > come raggiungerci
-        <br></br> 
+     <h2> Come Raggiungerci:</h2>
+        
 
 
     <p style="font-size: 14px">{{ $event->raggiungere}}</p>
